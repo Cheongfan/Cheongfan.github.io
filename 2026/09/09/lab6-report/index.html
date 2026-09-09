@@ -1,0 +1,981 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="吴啸天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="开发了一款名为《Aura时空留声馆》的图片分享社区小程序，设计了印象声音定格、朦胧轻触显形的印象化交互和足迹地图一览等功能。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中国海洋大学《移动软件开发》实验4：推箱子游戏">
+<meta property="og:url" content="http://example.com/2026/09/09/lab6-report/index.html">
+<meta property="og:site_name" content="Cheongfan">
+<meta property="og:description" content="开发了一款名为《Aura时空留声馆》的图片分享社区小程序，设计了印象声音定格、朦胧轻触显形的印象化交互和足迹地图一览等功能。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/11.jpg">
+<meta property="article:published_time" content="2026-09-09T13:30:00.000Z">
+<meta property="article:modified_time" content="2026-09-09T13:27:27.668Z">
+<meta property="article:author" content="吴啸天">
+<meta property="article:tag" content="中国海洋大学">
+<meta property="article:tag" content="微信小程序">
+<meta property="article:tag" content="移动软件开发">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/11.jpg">
+  
+  
+  
+  <title>中国海洋大学《移动软件开发》实验4：推箱子游戏 - Cheongfan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Cheongfan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="中国海洋大学《移动软件开发》实验4：推箱子游戏"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-09-09 21:30" pubdate>
+          2026年9月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          19k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          157 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">中国海洋大学《移动软件开发》实验4：推箱子游戏</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="移动软件开发实验六报告"><a href="#移动软件开发实验六报告" class="headerlink" title="移动软件开发实验六报告"></a>移动软件开发实验六报告</h1><h2 id="一、-实验目标"><a href="#一、-实验目标" class="headerlink" title="一、 实验目标"></a>一、 实验目标</h2><ol>
+<li>综合应用小程序云开发的基础知识创建图片分享社区小程序。</li>
+<li>掌握云数据集创建、云存储管理和云函数调用等知识。</li>
+</ol>
+<hr>
+<h2 id="二、-实验环境"><a href="#二、-实验环境" class="headerlink" title="二、 实验环境"></a>二、 实验环境</h2><ul>
+<li><strong>操作系统</strong>：Windows 11</li>
+<li><strong>开发工具</strong>：微信开发者工具（Stable 2.02）</li>
+<li><strong>运行环境</strong>：微信基础库 3.17.2</li>
+<li><strong>后端支撑</strong>：腾讯云·微信小程序云开发（云数据库、云存储、Node.js 云函数）</li>
+</ul>
+<hr>
+<h2 id="三、-实验内容"><a href="#三、-实验内容" class="headerlink" title="三、 实验内容"></a>三、 实验内容</h2><p>​	本次实验基于微信小程序云开发的后端数据库，开发了一款名为《Aura时空留声馆》的图片分享社区小程序，创造性地打造了印象声音定格、朦胧轻触显形的印象化交互和足迹地图一览等功能。此外，小程序围绕社区分享的主题功能，优化了界面与UI设计，具有独特的审美品味与艺术风格。</p>
+<p>​	下面将按照功能模块对本小程序的功能和实现做详细的介绍。</p>
+<h3 id="1-主页“胶片流”"><a href="#1-主页“胶片流”" class="headerlink" title="1. 主页“胶片流”"></a><strong>1. 主页“胶片流”</strong></h3><h4 id="1-“胶片”数据读取与呈现"><a href="#1-“胶片”数据读取与呈现" class="headerlink" title="(1) “胶片”数据读取与呈现"></a>(1) “胶片”数据读取与呈现</h4><p>​	主页“胶片流”是整个社区内容展示的核心载体。在视觉设计上，本模块采用了极简拟物风格的<strong>复古拍立得相纸</strong>视觉系统。每张卡片上方展示作者头像、昵称、打卡地标以及根据时间戳计算出的相对时间（如“3分钟前”、“昨天”）；卡片主体是一张照片，周围以拍立得白边相纸包裹；相纸底部留白处为发布者的配文、发布视觉和点赞。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- pages/index/index.wxml (拍立得卡片主体结构) --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;polaroid-card&quot;</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">&quot;&#123;&#123;photoList&#125;&#125;&quot;</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">&quot;_id&quot;</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 卡片头部：作者与时空足迹 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card-header&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;author-avatar&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;&#123;item.userInfo.avatarUrl&#125;&#125;&quot;</span> <span class="hljs-attr">catchtap</span>=<span class="hljs-string">&quot;navToAuthor&quot;</span> <span class="hljs-attr">data-openid</span>=<span class="hljs-string">&quot;&#123;&#123;item._openid&#125;&#125;&quot;</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">&quot;aspectFill&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;author-meta&quot;</span> <span class="hljs-attr">catchtap</span>=<span class="hljs-string">&quot;navToAuthor&quot;</span> <span class="hljs-attr">data-openid</span>=<span class="hljs-string">&quot;&#123;&#123;item._openid&#125;&#125;&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;author-name&quot;</span>&gt;</span>&#123;&#123;item.userInfo.nickName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sub-line&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;location-tag&quot;</span> <span class="hljs-attr">wx:if</span>=<span class="hljs-string">&quot;&#123;&#123;item.location &amp;&amp; item.location.placeName&#125;&#125;&quot;</span>&gt;</span>📍 &#123;&#123;item.location.placeName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;time-tag&quot;</span>&gt;</span>&#123;&#123;item.relativeTime&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 照片取景相框 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;photo-frame&quot;</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">&quot;handlePhotoTap&quot;</span> <span class="hljs-attr">data-id</span>=<span class="hljs-string">&quot;&#123;&#123;item._id&#125;&#125;&quot;</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;&#123;&#123;index&#125;&#125;&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;main-image &#123;&#123;item.isBlurred ? &#x27;darkroom-blur&#x27; : &#x27;&#x27;&#125;&#125;&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;&#123;item.photoUrl&#125;&#125;&quot;</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">&quot;widthFix&quot;</span> <span class="hljs-attr">lazy-load</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;darkroom-tag&quot;</span> <span class="hljs-attr">wx:if</span>=<span class="hljs-string">&quot;&#123;&#123;item.isBlurred&#125;&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flask-text&quot;</span>&gt;</span>🧪 轻触显影<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 底部打字机留白区 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;polaroid-bottom&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card-caption&quot;</span> <span class="hljs-attr">wx:if</span>=<span class="hljs-string">&quot;&#123;&#123;item.caption&#125;&#125;&quot;</span>&gt;</span>&#123;&#123;item.caption&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-footer&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;date-stamp&quot;</span>&gt;</span>&#123;&#123;item.addDate&#125;&#125; · FILM ARCHIVE<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;like-btn&quot;</span> <span class="hljs-attr">catchtap</span>=<span class="hljs-string">&quot;handleLike&quot;</span> <span class="hljs-attr">data-id</span>=<span class="hljs-string">&quot;&#123;&#123;item._id&#125;&#125;&quot;</span> <span class="hljs-attr">data-index</span>=<span class="hljs-string">&quot;&#123;&#123;index&#125;&#125;&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;like-icon&quot;</span>&gt;</span>&#123;&#123;item.isLiked ? &#x27;❤️&#x27; : &#x27;🤍&#x27;&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;like-count &#123;&#123;item.isLiked ? &#x27;liked-text&#x27; : &#x27;&#x27;&#125;&#125;&quot;</span>&gt;</span>&#123;&#123;item.likeCount || 0&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>​	在数据获取方面，页面逻辑层通过初始化云数据库并调用 <code>photos</code> 集合的拉取接口，使用 <code>orderBy(&#39;createTime&#39;, &#39;desc&#39;)</code> 保证最新发布的胶片置于顶端，并在每次页面回显（<code>onShow</code>）时动态合并本地刚冲洗的暂存记录，确保用户定格结果立即可见。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/index/index.js (云数据库全量数据动态拉取)</span><br><span class="hljs-attr">fetchPhotoList</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">isLoading</span>: <span class="hljs-literal">true</span> &#125;);<br>  <span class="hljs-keyword">const</span> db = wx.<span class="hljs-property">cloud</span>.<span class="hljs-title function_">database</span>();<br>  db.<span class="hljs-title function_">collection</span>(<span class="hljs-string">&#x27;photos&#x27;</span>)<br>    .<span class="hljs-title function_">orderBy</span>(<span class="hljs-string">&#x27;createTime&#x27;</span>, <span class="hljs-string">&#x27;desc&#x27;</span>)<br>    .<span class="hljs-title function_">limit</span>(<span class="hljs-number">30</span>)<br>    .<span class="hljs-title function_">get</span>()<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> cloudList = res.<span class="hljs-property">data</span> || [];<br>      <span class="hljs-keyword">const</span> developedIds = wx.<span class="hljs-title function_">getStorageSync</span>(<span class="hljs-string">&#x27;developed_photo_ids&#x27;</span>) || [];<br>      <span class="hljs-comment">// 动态转换相对时间，并根据永久显影白名单消除已洗出照片的模糊</span><br>      <span class="hljs-keyword">const</span> formattedList = cloudList.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> (&#123;<br>        ...item,<br>        <span class="hljs-attr">relativeTime</span>: <span class="hljs-title function_">getRelativeTime</span>(item.<span class="hljs-property">createTime</span>),<br>        <span class="hljs-attr">isBlurred</span>: item.<span class="hljs-property">isBlurred</span> &amp;&amp; !developedIds.<span class="hljs-title function_">includes</span>(item.<span class="hljs-property">_id</span>)<br>      &#125;));<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">photoList</span>: formattedList, <span class="hljs-attr">isLoading</span>: <span class="hljs-literal">false</span> &#125;);<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">buildMapMarkers</span>(formattedList);<br>      <span class="hljs-keyword">if</span> (callback) <span class="hljs-title function_">callback</span>();<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/1.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+<h4 id="2-“胶片”轻触交互与定格印象原声播放"><a href="#2-“胶片”轻触交互与定格印象原声播放" class="headerlink" title="(2) “胶片”轻触交互与定格印象原声播放"></a>(2) “胶片”轻触交互与定格印象原声播放</h4><p>​	为了提升定格的回忆感与静态胶片的生命力，主页引入了视听双维度的微交互。</p>
+<p>​	在视觉上，系统设计了<strong>双击胶片爆裂红心</strong>的手势算法：通过计算相邻两次点击相片的时间差（阈值设为 350ms），在相纸正中唤起贝塞尔弹性放大的爱心动画，并在底层以乐观更新策略同步递增点赞计数，同时通过云函数 <code>toggleLike</code> 触发原子的高并发累加。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/index/index.js (双击手势识别与红心粒子触发)</span><br><span class="hljs-attr">handlePhotoTap</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>  <span class="hljs-keyword">const</span> curTime = e.<span class="hljs-property">timeStamp</span>;<br>  <span class="hljs-keyword">const</span> lastTime = <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">lastTapTime</span>;<br>  <span class="hljs-keyword">const</span> &#123; id, index &#125; = e.<span class="hljs-property">currentTarget</span>.<span class="hljs-property">dataset</span>;<br><br>  <span class="hljs-keyword">if</span> (curTime - lastTime &lt; <span class="hljs-number">350</span>) &#123;<br>    <span class="hljs-comment">// 判定为双击：触发爆裂红心动效并点赞</span><br>    <span class="hljs-keyword">const</span> animKey = <span class="hljs-string">`photoList[<span class="hljs-subst">$&#123;index&#125;</span>].showHeartAnim`</span>;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; [animKey]: <span class="hljs-literal">true</span> &#125;);<br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123; <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; [animKey]: <span class="hljs-literal">false</span> &#125;); &#125;, <span class="hljs-number">800</span>);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">handleLikeCore</span>(photoId, index);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// 单击则延时判定，防误触直入胶片详情</span><br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">lastTapTime</span> === curTime) <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">navToDetailDirect</span>(id);<br>    &#125;, <span class="hljs-number">300</span>);<br>  &#125;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">lastTapTime</span>: curTime &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​	在听觉上，针对录制了“留声胶囊”的相片，在其右下角嵌有专属的拟物<strong>黑胶唱片徽标</strong>。利用挂载于 <code>app.globalData</code> 的全局唯一音频单例 <code>innerAudioContext</code>，实现了“就地换轨播放”能力。当用户轻触黑胶徽标时，黑胶盘面立即伴随 CSS 连续旋转动效（<code>spinDisc</code>），并输出清晰的环境录音，再次轻触或播放完毕后唱片平滑归位。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/index/index.js (黑胶唱片留声播放控制)</span><br><span class="hljs-attr">togglePlayVoice</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>  <span class="hljs-keyword">const</span> &#123; voice, id &#125; = e.<span class="hljs-property">currentTarget</span>.<span class="hljs-property">dataset</span>;<br>  <span class="hljs-keyword">const</span> player = app.<span class="hljs-property">globalData</span>.<span class="hljs-property">innerAudioContext</span>;<br>  <span class="hljs-keyword">if</span> (!voice) <span class="hljs-keyword">return</span>;<br><br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">currentPlayingId</span> === id) &#123;<br>    player.<span class="hljs-title function_">stop</span>();<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">currentPlayingId</span>: <span class="hljs-literal">null</span> &#125;);<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    player.<span class="hljs-title function_">stop</span>();<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">currentPlayingId</span>: id &#125;);<br>    player.<span class="hljs-property">src</span> = voice;<br>    player.<span class="hljs-title function_">play</span>();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/2.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+<h4 id="3-“胶片”高清预览、下载、海报生成与分享"><a href="#3-“胶片”高清预览、下载、海报生成与分享" class="headerlink" title="(3) “胶片”高清预览、下载、海报生成与分享"></a>(3) “胶片”高清预览、下载、海报生成与分享</h4><p>​	点击胶片主体后，页面经由路由传参跳转进入“胶片原件”详情页（<code>pages/detail</code>）。页面背景通过 CSS 高斯模糊将原图色调作为自适应动态漫反射底衬，当用户轻触画面时，过往的记忆渐渐浮现在眼前，通过交互设计提升用户的视觉沉浸感和回忆感。</p>
+<p>​	底部操作栏采用栅格排版，对称布置了存至相册、拍立得海报生成、全屏预览与分享好友四大功能。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- pages/detail/detail.wxml (四大功能工具栏) --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-grid-fixed&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-col ripple-tap&quot;</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">&quot;saveToLocalAlbum&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-circle&quot;</span>&gt;</span>💾<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-text&quot;</span>&gt;</span>存至相册<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-col ripple-tap&quot;</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">&quot;generatePoster&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-circle poster-circle&quot;</span>&gt;</span>🎨<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-text poster-text&quot;</span>&gt;</span>拍立得海报<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-col ripple-tap&quot;</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">&quot;previewFullImage&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-circle&quot;</span>&gt;</span>🔍<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-text&quot;</span>&gt;</span>全屏预览<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-col share-clean-btn ripple-tap&quot;</span> <span class="hljs-attr">open-type</span>=<span class="hljs-string">&quot;share&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-circle&quot;</span>&gt;</span>💌<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;action-text&quot;</span>&gt;</span>分享好友<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>​	其中，最具特色的是<strong>Canvas 2D 拍立得电影海报动态合成引擎</strong>。该模块采用小程序最新的 Canvas 2D 离屏节点，自动适配设备的物理像素比（DPR），将象牙白卡纸、照片主体居中裁切、拍摄地标、手写碎念以及打字机日期印戳逐一渲染，最终调用 <code>wx.canvasToTempFilePath</code> 并通过 <code>wx.saveImageToPhotosAlbum</code> 保存到系统相册，可供一键发布朋友圈。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/detail/detail.js (Canvas 2D 离屏绘制拍立得海报逻辑片段)</span><br><span class="hljs-attr">renderCanvasPoster</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">photoPath</span>) &#123;<br>  <span class="hljs-keyword">const</span> query = wx.<span class="hljs-title function_">createSelectorQuery</span>();<br>  query.<span class="hljs-title function_">select</span>(<span class="hljs-string">&#x27;#posterCanvas&#x27;</span>).<span class="hljs-title function_">fields</span>(&#123; <span class="hljs-attr">node</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">size</span>: <span class="hljs-literal">true</span> &#125;).<span class="hljs-title function_">exec</span>(<span class="hljs-title function_">async</span> (res) =&gt; &#123;<br>    <span class="hljs-keyword">const</span> canvas = res[<span class="hljs-number">0</span>].<span class="hljs-property">node</span>;<br>    <span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);<br>    <span class="hljs-keyword">const</span> dpr = wx.<span class="hljs-title function_">getSystemInfoSync</span>().<span class="hljs-property">pixelRatio</span>;<br>    canvas.<span class="hljs-property">width</span> = <span class="hljs-number">600</span> * dpr;<br>    canvas.<span class="hljs-property">height</span> = <span class="hljs-number">860</span> * dpr;<br>    ctx.<span class="hljs-title function_">scale</span>(dpr, dpr);<br><br>    <span class="hljs-comment">// 绘制象牙白相纸与照片主体</span><br>    ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;#FAF9F6&#x27;</span>;<br>    ctx.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">600</span>, <span class="hljs-number">860</span>);<br>    <span class="hljs-keyword">const</span> photoImg = canvas.<span class="hljs-title function_">createImage</span>();<br>    photoImg.<span class="hljs-property">src</span> = photoPath;<br>    photoImg.<span class="hljs-property">onload</span> = <span class="hljs-function">() =&gt;</span> &#123;<br>      ctx.<span class="hljs-title function_">drawImage</span>(photoImg, <span class="hljs-number">40</span>, <span class="hljs-number">40</span>, <span class="hljs-number">520</span>, <span class="hljs-number">580</span>);<br>      ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;#1F2937&#x27;</span>;<br>      ctx.<span class="hljs-property">font</span> = <span class="hljs-string">&#x27;bold 22px sans-serif&#x27;</span>;<br>      ctx.<span class="hljs-title function_">fillText</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">photoInfo</span>.<span class="hljs-property">caption</span> || <span class="hljs-string">&#x27;在漫长时光中定格此瞬。&#x27;</span>, <span class="hljs-number">40</span>, <span class="hljs-number">670</span>);<br>      ctx.<span class="hljs-property">font</span> = <span class="hljs-string">&#x27;14px Courier New&#x27;</span>;<br>      ctx.<span class="hljs-title function_">fillText</span>(<span class="hljs-string">`定格于 <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.data.photoInfo.addDate&#125;</span> · AURA FILM ARCHIVE`</span>, <span class="hljs-number">40</span>, <span class="hljs-number">760</span>);<br>      <span class="hljs-comment">// 导出图片并存入相册</span><br>      wx.<span class="hljs-title function_">canvasToTempFilePath</span>(&#123; canvas, <span class="hljs-attr">success</span>: <span class="hljs-function">(<span class="hljs-params">saveRes</span>) =&gt;</span> &#123;<br>        wx.<span class="hljs-title function_">saveImageToPhotosAlbum</span>(&#123; <span class="hljs-attr">filePath</span>: saveRes.<span class="hljs-property">tempFilePath</span> &#125;);<br>      &#125;&#125;);<br>    &#125;;<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/3.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab4/4.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab4/5.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<h4 id="4-“胶片”分享博主个人主页与预览胶片馆"><a href="#4-“胶片”分享博主个人主页与预览胶片馆" class="headerlink" title="(4) “胶片”分享博主个人主页与预览胶片馆"></a>(4) “胶片”分享博主个人主页与预览胶片馆</h4><p>​	社区中每一张胶片的作者头像皆可点击交互。点击头像时，通过事件对象提取作者的 <code>_openid</code>，借助 <code>wx.navigateTo</code> 携带参数路由至“时空档案馆”（<code>pages/homepage</code>）。该模块实现动态解耦：若传入的是当前用户标记，则加载本人名下的全部作品；若传入的是其他创作者标识，则从云数据库调取该创作者名下的所有历史定格作品。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/homepage/homepage.js (多作者胶片馆动态检索逻辑)</span><br><span class="hljs-attr">fetchAuthorDataFromCloud</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">openid</span>) &#123;<br>  <span class="hljs-keyword">const</span> db = wx.<span class="hljs-property">cloud</span>.<span class="hljs-title function_">database</span>();<br>  <span class="hljs-comment">// 根据传入的 openid 精确检索云数据库中的作品集合</span><br>  db.<span class="hljs-title function_">collection</span>(<span class="hljs-string">&#x27;photos&#x27;</span>)<br>    .<span class="hljs-title function_">where</span>(&#123; <span class="hljs-attr">_openid</span>: openid &#125;)<br>    .<span class="hljs-title function_">orderBy</span>(<span class="hljs-string">&#x27;createTime&#x27;</span>, <span class="hljs-string">&#x27;desc&#x27;</span>)<br>    .<span class="hljs-title function_">get</span>()<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> photos = res.<span class="hljs-property">data</span> || [];<br>      <span class="hljs-keyword">if</span> (photos.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-comment">// 动态读取该用户存入数据库的真实头像和昵称，拒绝写死</span><br>        <span class="hljs-keyword">const</span> author = photos[<span class="hljs-number">0</span>].<span class="hljs-property">userInfo</span>;<br>        <span class="hljs-keyword">const</span> likes = photos.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">acc, cur</span>) =&gt;</span> acc + (cur.<span class="hljs-property">likeCount</span> || <span class="hljs-number">0</span>), <span class="hljs-number">0</span>);<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">authorInfo</span>: author, <span class="hljs-attr">authorPhotos</span>: photos, <span class="hljs-attr">totalLikes</span>: likes &#125;);<br>      &#125;<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/6.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+<hr>
+<h3 id="2-“足迹地图”一览"><a href="#2-“足迹地图”一览" class="headerlink" title="2. “足迹地图”一览"></a><strong>2. “足迹地图”一览</strong></h3><h4 id="1-地图图钉与迷你照片卡片"><a href="#1-地图图钉与迷你照片卡片" class="headerlink" title="(1) 地图图钉与迷你照片卡片"></a>(1) 地图图钉与迷你照片卡片</h4><p>​	首页右上方搭载了一个仿毛玻璃质感的控制器，用户可以从“胶片流”主页切换到“足迹地图”中。“足迹地图”利用原生的 <code>&lt;map&gt;</code> 组件构筑，通过数据管道筛选出包含有效地理位置（经纬度）的所有公开相片，转化为地图上的标记点集合（<code>markers</code>）。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- pages/index/index.wxml (地图与自定义头像图钉插槽) --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">map</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;footprintMap&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;custom-map&quot;</span> <span class="hljs-attr">latitude</span>=<span class="hljs-string">&quot;&#123;&#123;centerLat&#125;&#125;&quot;</span> <span class="hljs-attr">longitude</span>=<span class="hljs-string">&quot;&#123;&#123;centerLng&#125;&#125;&quot;</span> <span class="hljs-attr">scale</span>=<span class="hljs-string">&quot;&#123;&#123;mapScale&#125;&#125;&quot;</span> <span class="hljs-attr">markers</span>=<span class="hljs-string">&quot;&#123;&#123;mapMarkers&#125;&#125;&quot;</span> <span class="hljs-attr">bindmarkertap</span>=<span class="hljs-string">&quot;onMarkerTap&quot;</span> <span class="hljs-attr">show-location</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 利用 customCallout 插槽在经纬度原位渲染作者头像与地标名 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">cover-view</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">&quot;callout&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">block</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">&quot;&#123;&#123;mapMarkers&#125;&#125;&quot;</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">&quot;id&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">cover-view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;avatar-callout-box&quot;</span> <span class="hljs-attr">marker-id</span>=<span class="hljs-string">&quot;&#123;&#123;item.id&#125;&#125;&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">cover-image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;callout-avatar&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;&#123;item.customData.userInfo.avatarUrl&#125;&#125;&quot;</span> /&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">cover-view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;callout-meta&quot;</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">cover-view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;callout-title&quot;</span>&gt;</span>&#123;&#123;item.customData.location.placeName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">cover-view</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">cover-view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;callout-author&quot;</span>&gt;</span>@&#123;&#123;item.customData.userInfo.nickName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">cover-view</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">cover-view</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">cover-view</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">block</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">cover-view</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">map</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>​	在视觉渲染上，通过小程序的 <code>customCallout</code> 插槽机制，将原本平淡的红水滴图钉替换为由“博主小头像+金色地标名”复合而成的<strong>头像气泡图钉</strong>。地图下方悬浮着一条支持水平横滑（<code>scroll-x</code>）的“迷你胶片抽屉”，直观展示各城市地标的相片封面与定格者信息。</p>
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/7.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+
+
+<h4 id="2-“胶片”切换与即时定位放大"><a href="#2-“胶片”切换与即时定位放大" class="headerlink" title="(2) “胶片”切换与即时定位放大"></a>(2) “胶片”切换与即时定位放大</h4><p>​	底部相片卡片与地图之间建立了流畅的映射。当用户在底部胶卷抽屉中滑动并点击某一张胶片时，逻辑层会捕获目标地标的地理经纬度，动态调整地图的中心视点，并将缩放级别平滑拉近至城市详细级别（<code>scale: 12</code>），同时高亮被选中的相片框并给予短震动反馈。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/index/index.js (镜头飞跃平移与标记点聚焦联动)</span><br><span class="hljs-attr">locateToPhoto</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>  <span class="hljs-keyword">const</span> item = e.<span class="hljs-property">currentTarget</span>.<span class="hljs-property">dataset</span>.<span class="hljs-property">item</span>;<br>  <span class="hljs-keyword">if</span> (!item.<span class="hljs-property">location</span>) <span class="hljs-keyword">return</span>;<br><br>  <span class="hljs-comment">// 平滑拉近镜头至城市级视点并聚焦</span><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123;<br>    <span class="hljs-attr">centerLat</span>: item.<span class="hljs-property">location</span>.<span class="hljs-property">latitude</span>,<br>    <span class="hljs-attr">centerLng</span>: item.<span class="hljs-property">location</span>.<span class="hljs-property">longitude</span>,<br>    <span class="hljs-attr">mapScale</span>: <span class="hljs-number">12</span>,<br>    <span class="hljs-attr">selectedPhotoId</span>: item.<span class="hljs-property">_id</span><br>  &#125;);<br>  wx.<span class="hljs-title function_">vibrateShort</span>(&#123; <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;light&#x27;</span> &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/8.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+
+
+<hr>
+<h3 id="3-个人定格工坊"><a href="#3-个人定格工坊" class="headerlink" title="3. 个人定格工坊"></a><strong>3. 个人定格工坊</strong></h3><h4 id="1-图文与留声"><a href="#1-图文与留声" class="headerlink" title="(1) 图文与留声"></a>(1) 图文与留声</h4><p>​	点击首页右下角的金色悬浮相机（FAB）即可进入冲洗发布的个人定格工坊（<code>pages/add</code>）。在图像采集上，提供了纯净的取景相框，结合 ActionSheet 原生交互，支持用户显式选择“现场实拍”（使用支持度最高的 <code>wx.chooseMedia</code> 直接唤起后置摄像头取景）或“相册导入”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/add/add.js (多媒体采集调用逻辑)</span><br><span class="hljs-attr">showPhotoSourceActionSheet</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  wx.<span class="hljs-title function_">showActionSheet</span>(&#123;<br>    <span class="hljs-attr">itemList</span>: [<span class="hljs-string">&#x27;📸 现场拍摄定格&#x27;</span>, <span class="hljs-string">&#x27;🖼️ 从手机相册选取&#x27;</span>],<br>    <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> source = res.<span class="hljs-property">tapIndex</span> === <span class="hljs-number">0</span> ? <span class="hljs-string">&#x27;camera&#x27;</span> : <span class="hljs-string">&#x27;album&#x27;</span>;<br>      wx.<span class="hljs-title function_">chooseMedia</span>(&#123;<br>        <span class="hljs-attr">count</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">mediaType</span>: [<span class="hljs-string">&#x27;image&#x27;</span>],<br>        <span class="hljs-attr">sourceType</span>: [source],<br>        <span class="hljs-attr">camera</span>: <span class="hljs-string">&#x27;back&#x27;</span>,<br>        <span class="hljs-attr">success</span>: <span class="hljs-function">(<span class="hljs-params">imgRes</span>) =&gt;</span> &#123;<br>          <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">tempPhotoPath</span>: imgRes.<span class="hljs-property">tempFiles</span>[<span class="hljs-number">0</span>].<span class="hljs-property">tempFilePath</span>, <span class="hljs-attr">canSubmit</span>: <span class="hljs-literal">true</span> &#125;);<br>        &#125;<br>      &#125;);<br>    &#125;<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​	在留声采集方面，利用微信原生录音管理器 <code>wx.getRecorderManager()</code> 实现了双模态采集（手机端支持长按录音、松手即停；电脑端支持单击启停）。录音期间，界面伴随拟物音频电平波柱跳动和实时秒数递增；录音结束后以 AAC 高保真编码生成临时音频，并支持就地试听与一键重录。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/add/add.js (留声录制监听与动态倒计时)</span><br><span class="hljs-attr">setupAudioRecorder</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  recorderManager.<span class="hljs-title function_">onStart</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    recordStartTime = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>();<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">isRecording</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">currentRecordSec</span>: <span class="hljs-number">1</span> &#125;);<br>    recordTimer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> sec = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((<span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() - recordStartTime) / <span class="hljs-number">1000</span>) + <span class="hljs-number">1</span>;<br>      <span class="hljs-keyword">if</span> (sec &gt;= <span class="hljs-number">10</span>) <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">stopRecordingProcess</span>();<br>      <span class="hljs-keyword">else</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">currentRecordSec</span>: sec &#125;);<br>    &#125;, <span class="hljs-number">1000</span>);<br>  &#125;);<br>  recorderManager.<span class="hljs-title function_">onStop</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>    <span class="hljs-built_in">clearInterval</span>(recordTimer);<br>    <span class="hljs-keyword">const</span> actualSec = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(<span class="hljs-number">1</span>, <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">round</span>((<span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>() - recordStartTime) / <span class="hljs-number">1000</span>));<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">isRecording</span>: <span class="hljs-literal">false</span>, <span class="hljs-attr">tempVoicePath</span>: res.<span class="hljs-property">tempFilePath</span>, <span class="hljs-attr">voiceDuration</span>: actualSec &#125;);<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/9.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+<h4 id="2-时空足迹定位"><a href="#2-时空足迹定位" class="headerlink" title="(2) 时空足迹定位"></a>(2) 时空足迹定位</h4><p>​	为了让每张胶片拥有鲜活的时空经纬，本模块集成了位置选择服务。在完成了全局权限授权后，调用微信原生选点 API <strong><code>wx.chooseLocation</code></strong>。用户可以在弹出的全屏腾讯地图中随意拖拽移动大头针，或者通过关键词检索全国范围内的地标名称与详细地点，选定后自动将经纬度坐标与地名回显到控制面板中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/add/add.js (原生地图打卡选点接口调用)</span><br><span class="hljs-attr">chooseLocation</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  wx.<span class="hljs-title function_">chooseLocation</span>(&#123;<br>    <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123;<br>        <span class="hljs-attr">latitude</span>: res.<span class="hljs-property">latitude</span>,<br>        <span class="hljs-attr">longitude</span>: res.<span class="hljs-property">longitude</span>,<br>        <span class="hljs-attr">placeName</span>: res.<span class="hljs-property">name</span> || res.<span class="hljs-property">address</span><br>      &#125;);<br>      wx.<span class="hljs-title function_">showToast</span>(&#123; <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;已选定地标&#x27;</span>, <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;success&#x27;</span> &#125;);<br>    &#125;<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/10.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+<h4 id="3-朦胧印象化交互"><a href="#3-朦胧印象化交互" class="headerlink" title="(3) 朦胧印象化交互"></a>(3) 朦胧印象化交互</h4><p>​	工坊内设计了一个名为“暗房神秘显影”的开关。若用户开启此开关，冲洗出的胶片将带有一层朦胧的浅柔焦效果（<code>filter: blur(8rpx)</code>），并在左上角盖上精巧的微光印戳。</p>
+<p>​	<strong>摇一摇显影</strong>机制的实现如下。通过调用微信硬件传感器接口 <strong><code>wx.onAccelerometerChange</code></strong> 监听三轴加速度。当用户晃动手机的超过阈值时，就会触发手机强震动反馈和模糊遮罩的平滑过渡消退，<strong>仿佛是过去的回忆渐渐浮现的眼前</strong>。显影状态会被持久化写入本地存储 <code>developed_photo_ids</code> 白名单中，只有初见的回忆胶片才有模糊效果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/detail/detail.js (加速度计摇一摇显影判定)</span><br><span class="hljs-attr">initShakeSensor</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  wx.<span class="hljs-title function_">startAccelerometer</span>(&#123; <span class="hljs-attr">interval</span>: <span class="hljs-string">&#x27;game&#x27;</span> &#125;);<br>  wx.<span class="hljs-title function_">onAccelerometerChange</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> curTime = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>();<br>    <span class="hljs-keyword">if</span> ((curTime - <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">lastShakeTime</span>) &gt; <span class="hljs-number">100</span>) &#123;<br>      <span class="hljs-keyword">const</span> diffTime = curTime - <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">lastShakeTime</span>;<br>      <span class="hljs-keyword">const</span> speed = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">abs</span>(res.<span class="hljs-property">x</span> + res.<span class="hljs-property">y</span> + res.<span class="hljs-property">z</span> - <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">lastX</span> - <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">lastY</span> - <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">lastZ</span>) / diffTime * <span class="hljs-number">10000</span>;<br>      <span class="hljs-comment">// 达到摇晃阈值且未曾显影，触发洗照片动效</span><br>      <span class="hljs-keyword">if</span> (speed &gt; <span class="hljs-number">160</span> &amp;&amp; !<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">isDeveloped</span>) &#123;<br>        wx.<span class="hljs-title function_">stopAccelerometer</span>();<br>        wx.<span class="hljs-title function_">vibrateLong</span>();<br>        <span class="hljs-keyword">const</span> developedIds = wx.<span class="hljs-title function_">getStorageSync</span>(<span class="hljs-string">&#x27;developed_photo_ids&#x27;</span>) || [];<br>        developedIds.<span class="hljs-title function_">push</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">photoId</span>);<br>        wx.<span class="hljs-title function_">setStorageSync</span>(<span class="hljs-string">&#x27;developed_photo_ids&#x27;</span>, developedIds);<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">isDeveloped</span>: <span class="hljs-literal">true</span> &#125;);<br>        wx.<span class="hljs-title function_">showToast</span>(&#123; <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;显影完成 ✨&#x27;</span>, <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;none&#x27;</span> &#125;);<br>      &#125;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123; <span class="hljs-attr">lastX</span>: res.<span class="hljs-property">x</span>, <span class="hljs-attr">lastY</span>: res.<span class="hljs-property">y</span>, <span class="hljs-attr">lastZ</span>: res.<span class="hljs-property">z</span>, <span class="hljs-attr">lastShakeTime</span>: curTime &#125;);<br>    &#125;<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/11.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+<h4 id="4-“胶片”冲刷与入库"><a href="#4-“胶片”冲刷与入库" class="headerlink" title="(4) “胶片”冲刷与入库"></a>(4) “胶片”冲刷与入库</h4><p>​	点击“入库并冲洗胶片”大按钮后，系统正式步入端云一体化存储管道。</p>
+<p>​	在这个过程中，图像文件首先通过 <strong><code>wx.cloud.uploadFile</code></strong> 流式上传至腾讯云存储空间 <code>photos/</code> 目录，换取跨端合法的云文件标识 <code>realPhotoFileID</code>（即 <code>cloud://</code> 格式的资源地址）；若录制了环境音，音频临时文件也同步上传至 <code>voices/</code> 目录换取音频 <code>fileID</code>。随后，基于数据库入库规范，构造不含 _id 的标准记录并推送至云数据库 <code>photos</code> 集合中；作者信息则直接绑定授权的全局对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pages/add/add.js (云存储上传与云数据库入库事务)</span><br><span class="hljs-attr">handleSubmit</span>: <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 1. 上传图片至云存储</span><br>  <span class="hljs-keyword">const</span> uploadPhotoRes = <span class="hljs-keyword">await</span> wx.<span class="hljs-property">cloud</span>.<span class="hljs-title function_">uploadFile</span>(&#123;<br>    <span class="hljs-attr">cloudPath</span>: <span class="hljs-string">`photos/<span class="hljs-subst">$&#123;<span class="hljs-built_in">Date</span>.now()&#125;</span>_<span class="hljs-subst">$&#123;<span class="hljs-built_in">Math</span>.random().toString(<span class="hljs-number">36</span>).slice(-<span class="hljs-number">6</span>)&#125;</span>.jpg`</span>,<br>    <span class="hljs-attr">filePath</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">tempPhotoPath</span><br>  &#125;);<br>  <span class="hljs-comment">// 2. 存在录音则上传音频至云存储</span><br>  <span class="hljs-keyword">let</span> realVoiceFileID = <span class="hljs-string">&#x27;&#x27;</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">tempVoicePath</span>) &#123;<br>    <span class="hljs-keyword">const</span> uploadVoiceRes = <span class="hljs-keyword">await</span> wx.<span class="hljs-property">cloud</span>.<span class="hljs-title function_">uploadFile</span>(&#123;<br>      <span class="hljs-attr">cloudPath</span>: <span class="hljs-string">`voices/<span class="hljs-subst">$&#123;<span class="hljs-built_in">Date</span>.now()&#125;</span>_<span class="hljs-subst">$&#123;<span class="hljs-built_in">Math</span>.random().toString(<span class="hljs-number">36</span>).slice(-<span class="hljs-number">6</span>)&#125;</span>.aac`</span>,<br>      <span class="hljs-attr">filePath</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">tempVoicePath</span><br>    &#125;);<br>    realVoiceFileID = uploadVoiceRes.<span class="hljs-property">fileID</span>;<br>  &#125;<br>  <span class="hljs-comment">// 3. 构造不含 _id 的标准记录并写入集合</span><br>  <span class="hljs-keyword">const</span> cloudPayload = &#123;<br>    <span class="hljs-attr">photoUrl</span>: uploadPhotoRes.<span class="hljs-property">fileID</span>,<br>    <span class="hljs-attr">caption</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">caption</span> || <span class="hljs-string">&#x27;定格此瞬，未写下碎念。&#x27;</span>,<br>    <span class="hljs-attr">voiceUrl</span>: realVoiceFileID,<br>    <span class="hljs-attr">voiceDuration</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">voiceDuration</span> || <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">location</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">placeName</span> ? &#123;<br>      <span class="hljs-attr">latitude</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">latitude</span>, <span class="hljs-attr">longitude</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">longitude</span>, <span class="hljs-attr">placeName</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">placeName</span><br>    &#125; : <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">isBlurred</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">isBlurred</span>,<br>    <span class="hljs-attr">likeCount</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">likedUsers</span>: [],<br>    <span class="hljs-attr">userInfo</span>: app.<span class="hljs-property">globalData</span>.<span class="hljs-property">userInfo</span> || wx.<span class="hljs-title function_">getStorageSync</span>(<span class="hljs-string">&#x27;user_profile&#x27;</span>),<br>    <span class="hljs-attr">addDate</span>: <span class="hljs-string">&#x27;今天&#x27;</span>,<br>    <span class="hljs-attr">createTime</span>: <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>()<br>  &#125;;<br>  <span class="hljs-keyword">const</span> db = wx.<span class="hljs-property">cloud</span>.<span class="hljs-title function_">database</span>();<br>  <span class="hljs-keyword">await</span> db.<span class="hljs-title function_">collection</span>(<span class="hljs-string">&#x27;photos&#x27;</span>).<span class="hljs-title function_">add</span>(&#123; <span class="hljs-attr">data</span>: cloudPayload &#125;);<br>  wx.<span class="hljs-title function_">showToast</span>(&#123; <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;已真实存入云端！&#x27;</span>, <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;success&#x27;</span> &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/12.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+<p align="center">
+  <img src="/images/lab4/13.png" srcset="/img/loading.gif" lazyload width="85%" />
+</p>
+
+
+
+<hr>
+<h3 id="4-个人主页"><a href="#4-个人主页" class="headerlink" title="4. 个人主页"></a><strong>4. 个人主页</strong></h3><p>​	个人主页（<code>pages/homepage</code>）是本用户专属的“时空档案馆”。页面顶层设计了极具质感的暗黑发光档案卡，呈现头像、称号和数据库数据的统计数据（如“胶卷作品”和“获赞认同”）。</p>
+<p>​	下方画廊通过两列网格呈现，每张作品卡片底部通过蒙层显示日期与点赞数。并通过页面的 <code>onShow</code> 周期监听，确保多端数据的一致性。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- pages/homepage/homepage.wxml (作者档案看板与作品瀑布流) --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;archive-container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;author-profile-card glass-panel&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;profile-avatar&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;&#123;authorInfo.avatarUrl&#125;&#125;&quot;</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">&quot;aspectFill&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;profile-name&quot;</span>&gt;</span>&#123;&#123;authorInfo.nickName&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stats-ribbon&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stat-cell&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stat-num&quot;</span>&gt;</span>&#123;&#123;authorPhotos.length&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stat-txt&quot;</span>&gt;</span>胶卷作品<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stat-divider&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stat-cell&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stat-num&quot;</span>&gt;</span>&#123;&#123;totalLikes&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;stat-txt&quot;</span>&gt;</span>获赞认同<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- 作品陈列画廊 --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;gallery-grid&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;grid-card ripple-tap&quot;</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">&quot;&#123;&#123;authorPhotos&#125;&#125;&quot;</span> <span class="hljs-attr">wx:key</span>=<span class="hljs-string">&quot;_id&quot;</span> <span class="hljs-attr">bindtap</span>=<span class="hljs-string">&quot;navToDetail&quot;</span> <span class="hljs-attr">data-id</span>=<span class="hljs-string">&quot;&#123;&#123;item._id&#125;&#125;&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;grid-image&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;&#123;item.photoUrl&#125;&#125;&quot;</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">&quot;aspectFill&quot;</span> <span class="hljs-attr">lazy-load</span> /&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;grid-card-overlay&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overlay-date&quot;</span>&gt;</span>&#123;&#123;item.addDate&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;overlay-like&quot;</span>&gt;</span>❤️ &#123;&#123;item.likeCount || 0&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/14.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<hr>
+<h2 id="四、-问题总结与体会"><a href="#四、-问题总结与体会" class="headerlink" title="四、 问题总结与体会"></a>四、 问题总结与体会</h2><h3 id="1-遇到的问题与代码调优"><a href="#1-遇到的问题与代码调优" class="headerlink" title="1. 遇到的问题与代码调优"></a>1. 遇到的问题与代码调优</h3><p>​	在本次小程序的开发与调优的过程中，我遇到了一些涉及云开发端侧规范、安全权限配置以及系统隐私接口调用的问题，并进行了针对性的解决：</p>
+<ul>
+<li><p><strong>问题一：云数据库添加记录时在客户端伪造 <code>_id</code> 导致的写入静默失败与全网可读权限缺失</strong></p>
+<ul>
+<li><em>现象</em>：在发布页冲洗提交照片后，前端提示成功，但在打开云开发控制台查验 <code>photos</code> 集合时，数据列表始终显示“没有找到记录”；且当尝试导入种子数据后，真机端列表依然一片漆黑。</li>
+<li><em>分析与解决</em>：<ol>
+<li>查阅控制台网络调用堆栈，发现客户端调用 <code>db.collection(&#39;photos&#39;).add()</code> 时抛出了 <code>cannot specify _id in add</code> 异常。这是由于开发初期为了兼顾本地缓存，在数据字典中定义了临时字段 <code>_id: &#39;local_xxx&#39;</code>，而微信 SDK 规定客户端插入数据时严禁指定 <code>_id</code>，导致请求被底层直接打回，异常被外层 <code>catch</code> 吞噬；</li>
+<li>深入排查发现，新建的 <code>photos</code> 集合默认数据安全权限为“仅创建者可读写”，导致通过控制台或外部注入的其他创作者记录，由于 <code>_openid</code> 与当前测试者不匹配，被系统安全规则静默过滤，端侧查询返回始终为空数组；</li>
+<li>调优策略上，首先彻底清理了提交载荷中多余的 <code>_id</code> 属性，交由腾讯云服务端自增生成 32 位唯一哈希；其次在云开发控制台中将 <code>photos</code> 集合的数据权限调整为“所有用户可读，仅创建者及管理员可写”，并在代码中取消静默吞噬，加入显式弹窗排查机制，数据库入库与跨用户拉取恢复正常。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>问题二：时空足迹地图选点被强制退化为“上海”的接口权限排查与真云端解耦</strong></p>
+<ul>
+<li><em>现象</em>：在定格工坊点击“时空足迹”选点时，小程序未能唤起预期的全屏地图定位界面，而是每一次都机械式地默认退化赋值为“上海 · 外滩观景台”。</li>
+<li><em>初步尝试</em>：起初怀疑是开发者工具模拟器的虚拟定位被默认定在华东地区，尝试在开发者工具“传感器”面板中手动输入三亚经纬度进行仿真，但点击打卡时依旧直接跳转并锁定为上海。</li>
+<li><em>结果与分析</em>：调出调试器 Console 面板捕捉到红字异常 <code>fail: the api chooseLocation is not declared in app.json</code>。查阅最新的微信官方隐私规范得知，<code>chooseLocation</code> 属于高敏感用户位置接口，必须在全局配置文件 <code>app.json</code> 的 <code>requiredPrivateInfos</code> 字段中显式声明；此前由于只声明了 <code>getLocation</code>，导致调用直接触发系统拒访分支，进而执行了代码中写死的兜底逻辑；同时这也暴露了前端代码存在多处硬编码 Mock 数据退化分支的问题。</li>
+<li><em>最终方案</em>：在 <code>app.json</code> 中补齐 <code>&quot;chooseLocation&quot;</code> 隐私声明，并在选点逻辑中移除强制性假值赋值，使用户点击取消时不产生负作用；随后在系统启动层通过云端检测自动完成多用户数据的标准初始化，彻底剔除了前端写死的 samples 数组，实现了所有地标点与相片实体完全由后端数据库动态查询返回，解决了定位锁死的问题。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-实验总结与收获"><a href="#2-实验总结与收获" class="headerlink" title="2. 实验总结与收获"></a>2. 实验总结与收获</h3><p>​	这次实验融入了微信云开发提供的后端数据库，让我学习到了云数据库、云存储以及云函数是如何与前端各个视图模块进行融合的知识。</p>
+<p>​	本次应用开发，我认为我最大的提升是增强了对后端数据库重要性的理解。相比于传统纯前端的静态的项目， 在本项目中，后端数据库能够以结构化的 Schema 统筹管理各类不同类型的数据项，这是小程序数据能够记录过去一定历史的信息，并进行动态变化、渲染的重要基础。	</p>
+<p>​	这次实验我走通了云开发从数据建模、到功能设计、再到闭环落地的全流程，不仅熟悉了云数据库、云存储管理以及硬件交互接口调用方面的技术，也让我提升了在端云协同体系下的系统排错与用户体验调优能力。</p>
+<p>​	总之，这次实验让我学到了严谨规范的工程化开发思维，让我受益匪浅。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" class="category-chain-item">课程实验</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="print-no-link">#微信小程序</a>
+      
+        <a href="/tags/%E7%A7%BB%E5%8A%A8%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="print-no-link">#移动软件开发</a>
+      
+        <a href="/tags/%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6/" class="print-no-link">#中国海洋大学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>中国海洋大学《移动软件开发》实验4：推箱子游戏</div>
+      <div>http://example.com/2026/09/09/lab6-report/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>吴啸天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年9月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/09/09/lab5-report/" title="中国海洋大学《移动软件开发》实验4：推箱子游戏">
+                        <span class="hidden-mobile">中国海洋大学《移动软件开发》实验4：推箱子游戏</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

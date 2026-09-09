@@ -1,0 +1,967 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="吴啸天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基于 HarmonyOS NEXT， 在 DevEco Studio 上利用 ArkTS 语言开发了多功能计算器，集成了普通、科学、程序员大三计算器，包含汇率、单位、BMI等实用计算功能，实现了历史记录、主题切换等设计。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中国海洋大学《移动软件开发》实验4：推箱子游戏">
+<meta property="og:url" content="http://example.com/2026/09/09/lab5-report/index.html">
+<meta property="og:site_name" content="Cheongfan">
+<meta property="og:description" content="基于 HarmonyOS NEXT， 在 DevEco Studio 上利用 ArkTS 语言开发了多功能计算器，集成了普通、科学、程序员大三计算器，包含汇率、单位、BMI等实用计算功能，实现了历史记录、主题切换等设计。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/10.jpg">
+<meta property="article:published_time" content="2026-09-09T13:30:00.000Z">
+<meta property="article:modified_time" content="2026-09-09T13:27:36.270Z">
+<meta property="article:author" content="吴啸天">
+<meta property="article:tag" content="中国海洋大学">
+<meta property="article:tag" content="微信小程序">
+<meta property="article:tag" content="移动软件开发">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/10.jpg">
+  
+  
+  
+  <title>中国海洋大学《移动软件开发》实验4：推箱子游戏 - Cheongfan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Cheongfan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="中国海洋大学《移动软件开发》实验4：推箱子游戏"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-09-09 21:30" pubdate>
+          2026年9月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          120 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">中国海洋大学《移动软件开发》实验4：推箱子游戏</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="移动软件开发实验五报告"><a href="#移动软件开发实验五报告" class="headerlink" title="移动软件开发实验五报告"></a>移动软件开发实验五报告</h1><h2 id="一、-实验目标"><a href="#一、-实验目标" class="headerlink" title="一、 实验目标"></a>一、 实验目标</h2><ol>
+<li>掌握基础的ArkTS程序开发；</li>
+<li>开发一个具有自己个性风格的计算器。</li>
+</ol>
+<hr>
+<h2 id="二、-实验环境"><a href="#二、-实验环境" class="headerlink" title="二、 实验环境"></a>二、 实验环境</h2><ul>
+<li><strong>开发平台</strong>：Windows 11 64位家庭版</li>
+<li><strong>开发集成环境（IDE）</strong>：DevEco Studio 5.0.3 Release（编译运行环境构建工具：Hvigor）</li>
+<li><strong>开发语言与规范</strong>：ArkTS、HarmonyOS NEXT 声明式开发范式</li>
+<li><strong>运行与调试环境</strong>：HarmonyOS 7.0.0(26.0.0) 模拟器（分辨率 1320px×2232，像素密度480dpi，屏幕大小6.39”）</li>
+</ul>
+<hr>
+<h2 id="三、-实验内容"><a href="#三、-实验内容" class="headerlink" title="三、 实验内容"></a>三、 实验内容</h2><p>​	本次实验基于 HarmonyOS NEXT， 在 DevEco Studio 上利用 ArkTS 语言进行多功能计算器的软件开发，使其能够编译运行于鸿蒙系统中。该应用集成了普通计算器、科学计算器和<strong>程序员计算器</strong>三大核心计算器，同时包含了<strong>汇率计算、常见单位换算、BMI计算与金额汉字大写转换</strong>等实用功能，并通过<strong>历史记录</strong>、主题切换、<strong>黑夜模式</strong>和美观的UI设计优化了用户体验。<br>​	<br>​	下面将按照页面对本应用的核心功能及其实现做详细的介绍。</p>
+<h3 id="1-计算页"><a href="#1-计算页" class="headerlink" title="1. 计算页"></a>1. 计算页</h3><p>​	计算页为应用默认展示的主页面，集成了三种不同的计算模式以及一套历史记录追溯系统。</p>
+<h4 id="1-普通计算器"><a href="#1-普通计算器" class="headerlink" title="(1) 普通计算器"></a>(1) 普通计算器</h4><p>​	普通计算器布局上采用整齐的 6 行 4 列网格。上部设计了支持字符长度自适应缩放的大字算式区，并提供弱化字号的实时求值预览；下部键盘第一排为 <code>mc/m+/m-/mr</code> 记忆键，右侧排列基础四则运算符，右下角则配置了高饱和度的主题色实心大圆形等号。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// views/calculator/StandardKeypadView.ets (标准 6x4 矩阵键盘布局)</span><br><span class="hljs-title class_">Column</span>() &#123;<br>  <span class="hljs-title class_">Row</span>() &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;mc&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;m+&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;m-&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;mr&#x27;</span>);<br>  &#125;.<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceAround</span>)<br><br>  <span class="hljs-title class_">Row</span>() &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;AC&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;←&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;+/-&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;÷&#x27;</span>);<br>  &#125;.<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceAround</span>)<br><br>  <span class="hljs-title class_">Row</span>() &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;7&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;8&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;9&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;×&#x27;</span>);<br>  &#125;.<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceAround</span>)<br><br>  <span class="hljs-title class_">Row</span>() &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;4&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;5&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;6&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;-&#x27;</span>);<br>  &#125;.<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceAround</span>)<br><br>  <span class="hljs-title class_">Row</span>() &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;1&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;2&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;3&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueTextKey</span>(<span class="hljs-string">&#x27;+&#x27;</span>);<br>  &#125;.<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceAround</span>)<br><br>  <span class="hljs-title class_">Row</span>() &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;%&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;0&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;.&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">EqualBigCircleKey</span>();<br>  &#125;.<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceAround</span>)<br>&#125;<br>.<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">height</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceAround</span>)<br></code></pre></td></tr></table></figure>
+
+<p>​	普通计算的核心在于中缀表达式解析与四则运算优先级的实现。为了杜绝浮点数计算失真以及 <code>2+3×4</code> 这种复合算式的优先级混乱，我利用调度场算法（Shunting-Yard Algorithm）将输入的算式转换为逆波兰表达式（RPN），并通过栈结构执行准确求解，消除了浮点精度误差。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// common/MathEngine.ets (逆波兰四则运算核心调度)</span><br><span class="hljs-comment">// 依据优先级将中缀表达式队列转化为后缀队列</span><br><span class="hljs-keyword">while</span> (operatorStack.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span> &amp;&amp;<br>  operatorStack[operatorStack.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>].<span class="hljs-property">symbol</span> !== <span class="hljs-string">&#x27;(&#x27;</span> &amp;&amp;<br>  <span class="hljs-title class_">MathEngine</span>.<span class="hljs-title function_">getPrecedence</span>(operatorStack[operatorStack.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>].<span class="hljs-property">symbol</span>) &gt;= <span class="hljs-title class_">MathEngine</span>.<span class="hljs-title function_">getPrecedence</span>(token.<span class="hljs-property">symbol</span>)) &#123;<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">popped</span>: <span class="hljs-title class_">EvalToken</span> | <span class="hljs-literal">undefined</span> = operatorStack.<span class="hljs-title function_">pop</span>();<br>  <span class="hljs-keyword">if</span> (popped) outputQueue.<span class="hljs-title function_">push</span>(popped);<br>&#125;<br>operatorStack.<span class="hljs-title function_">push</span>(token);<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/1.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<h4 id="2-科学计算器"><a href="#2-科学计算器" class="headerlink" title="(2) 科学计算器"></a>(2) 科学计算器</h4><p>​	为了容纳更为复杂的三角函数与指数开方运算，科学计算器重构为了 6 行 8 列的全功能专业矩阵，并在左上角配置了高亮状态的 <code>2nd</code>（第二功能）功能换挡键。<br>​	<br>​	界面的前五列包含三角函数、方幂开方等科学算子，后三列与普通计算键盘无缝平铺。当点击 <code>2nd</code> 键时，界面局部组件直连响应式状态，第四、五行的 <code>sin</code>、<code>cos</code>、<code>tan</code>、<code>ln</code>、<code>e^x</code> 会瞬间动态变身为高阶的反三角函数 <code>asin</code>、<code>acos</code>、<code>atan</code>、对数 <code>log2</code> 以及底数幂 <code>2^x</code>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// views/calculator/ScientificView.ets (2nd 动态换挡按键声明)</span><br><span class="hljs-title class_">Row</span>() &#123;<br>  <span class="hljs-comment">// sin / asin 动态切换</span><br>  <span class="hljs-title class_">CalcKey</span>(&#123;<br>    <span class="hljs-attr">text</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">isSecondActive</span> ? <span class="hljs-string">&#x27;asin&#x27;</span> : <span class="hljs-string">&#x27;sin&#x27;</span>,<br>    <span class="hljs-attr">fontColor</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">isSecondActive</span> ? <span class="hljs-variable language_">this</span>.<span class="hljs-property">currentTheme</span>.<span class="hljs-property">primaryColor</span> : <span class="hljs-variable language_">this</span>.<span class="hljs-property">currentTheme</span>.<span class="hljs-property">textColorPrimary</span>,<br>    <span class="hljs-attr">onClickAction</span>: (): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">onKeyClick</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">isSecondActive</span> ? <span class="hljs-string">&#x27;asin&#x27;</span> : <span class="hljs-string">&#x27;sin&#x27;</span>);<br>    &#125;<br>  &#125;)<br>  ... <span class="hljs-comment">// 省略 acos, atan, log2 等并行变身键声明</span><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;4&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;5&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">NumberKey</span>(<span class="hljs-string">&#x27;6&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">BlueKey</span>(<span class="hljs-string">&#x27;-&#x27;</span>);<br>&#125;<br>.<span class="hljs-title function_">width</span>(<span class="hljs-string">&#x27;100%&#x27;</span>).<span class="hljs-title function_">justifyContent</span>(<span class="hljs-title class_">FlexAlign</span>.<span class="hljs-property">SpaceAround</span>)<br></code></pre></td></tr></table></figure>
+
+<p>​	在数学代数逻辑上，该模块落实了严格的手写视觉输入流：针对任意次方根键 <code>x√y</code>，允许用户先输入开方次数（如 <code>3</code>），点击算子追加成 <code>3√(</code>，接着输入被开方数 <code>8</code>，最终通过底层自研解析器将 <code>x nroot y</code> 解析为 $y^{1&#x2F;x}$ 计算求得结果 <code>2</code>；同时将自然底数常数 <code>e</code> 独立作为按键，免去用户多重组合输入的繁琐。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// pages/Index.ets (科学计算流派 B 输入流构建)</span><br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (key === <span class="hljs-string">&#x27;x√y&#x27;</span>) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">expression</span> &amp;&amp; ![<span class="hljs-string">&#x27;+&#x27;</span>, <span class="hljs-string">&#x27;-&#x27;</span>, <span class="hljs-string">&#x27;×&#x27;</span>, <span class="hljs-string">&#x27;÷&#x27;</span>, <span class="hljs-string">&#x27;(&#x27;</span>].<span class="hljs-title function_">includes</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">expression</span>.<span class="hljs-title function_">slice</span>(-<span class="hljs-number">1</span>))) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">expression</span> += <span class="hljs-string">&#x27;√(&#x27;</span>; <span class="hljs-comment">// 构建为 3√( 视觉手写结构</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">expression</span> += <span class="hljs-string">&#x27;2√(&#x27;</span>; <span class="hljs-comment">// 前无数字默认进行开平方</span><br>  &#125;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">previewResult</span> = <span class="hljs-title class_">MathEngine</span>.<span class="hljs-title function_">evaluate</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">expression</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/2.png" srcset="/img/loading.gif" lazyload width="40%" />
+</p>
+
+
+<h4 id="3-程序员计算器"><a href="#3-程序员计算器" class="headerlink" title="(3) 程序员计算器"></a>(3) 程序员计算器</h4><p>​	程序员计算器专为计算机体系结构数据处理设计，整体结构分为上半部的“四进制联动卡片”与下半部的“位运算与十六进制键盘”。<br>​	<br>​	卡片区实时展示数值在十六进制（HEX）、十进制（DEC）、八进制（OCT）以及按四位成组格式化的二进制（BIN）。用户点击某一行即可将当前输入锁定为该进制基准，界面底部的按键会自动进行可用性校验：切换到 BIN 模式时，按键动态将除 <code>0</code>、<code>1</code> 外的所有字符置灰并禁用点击；在 HEX 模式下则全量点亮 <code>A~F</code> 字符键。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// views/calculator/ProgrammerView.ets (进制切换与字符输入约束)</span><br><span class="hljs-keyword">private</span> <span class="hljs-title function_">checkCharAvailable</span>(<span class="hljs-attr">char</span>: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">boolean</span> &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">activeRadix</span> === <span class="hljs-title class_">RadixType</span>.<span class="hljs-property">BIN</span>) <span class="hljs-keyword">return</span> char === <span class="hljs-string">&#x27;0&#x27;</span> || char === <span class="hljs-string">&#x27;1&#x27;</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">activeRadix</span> === <span class="hljs-title class_">RadixType</span>.<span class="hljs-property">OCT</span>) <span class="hljs-keyword">return</span> [<span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;4&#x27;</span>, <span class="hljs-string">&#x27;5&#x27;</span>, <span class="hljs-string">&#x27;6&#x27;</span>, <span class="hljs-string">&#x27;7&#x27;</span>].<span class="hljs-title function_">includes</span>(char);<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">activeRadix</span> === <span class="hljs-title class_">RadixType</span>.<span class="hljs-property">DEC</span>) <span class="hljs-keyword">return</span> ![<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;B&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>, <span class="hljs-string">&#x27;E&#x27;</span>, <span class="hljs-string">&#x27;F&#x27;</span>].<span class="hljs-title function_">includes</span>(char);<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">// HEX 模式下全部可用</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​	逻辑层内部维护无符号 32 位有符号&#x2F;无符号整型数据体系，支持 <code>AND</code>、<code>OR</code>、<code>XOR</code>、<code>NOT</code>、<code>&lt;&lt;</code>（左移）位运算。在计算执行逻辑中，采用前置参数捕获机制，并在顶部右上角生成运算表达式水印提示，确保如 <code>6 &lt;&lt; 3 = 48</code> 这样的位运算能精确展示与入栈。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// views/calculator/ProgrammerView.ets (位运算执行与历史保存)</span><br><span class="hljs-keyword">private</span> <span class="hljs-title function_">onExecuteCalculate</span>(): <span class="hljs-built_in">void</span> &#123;<br>  <span class="hljs-keyword">if</span> (!<span class="hljs-variable language_">this</span>.<span class="hljs-property">pendingOp</span>) <span class="hljs-keyword">return</span>;<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">leftNum</span>: <span class="hljs-built_in">number</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">previousVal</span>;<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">rightNum</span>: <span class="hljs-built_in">number</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">currentVal</span>;<br>  <span class="hljs-keyword">let</span> <span class="hljs-attr">res</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">pendingOp</span> === <span class="hljs-string">&#x27;AND&#x27;</span>) res = (leftNum &amp; rightNum) | <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">pendingOp</span> === <span class="hljs-string">&#x27;XOR&#x27;</span>) res = (leftNum ^ rightNum) | <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">pendingOp</span> === <span class="hljs-string">&#x27;&lt;&lt;&#x27;</span>) res = (leftNum &lt;&lt; rightNum) | <span class="hljs-number">0</span>;<br>  ... <span class="hljs-comment">// 省略其他位运算分支</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">exprText</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">`<span class="hljs-subst">$&#123;leftNum&#125;</span> <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.pendingOp&#125;</span> <span class="hljs-subst">$&#123;rightNum&#125;</span>`</span>;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">progHistoryList</span>.<span class="hljs-title function_">unshift</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">HistoryItem</span>(exprText, res.<span class="hljs-title function_">toString</span>()));<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">currentVal</span> = res;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">refreshAllDisplays</span>(res);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/3.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<h4 id="4-历史记录功能"><a href="#4-历史记录功能" class="headerlink" title="(4) 历史记录功能"></a>(4) 历史记录功能</h4><p>​	本应用实现了水平分割的卡片式历史记录面板。<br>​	<br>​	在主页面上，当用户点击顶栏的时钟图标 <code>🕒</code> 后，图标通过平滑状态切换变为撤销回退箭头 <code>↩</code>；同时，页面左侧 75% 的数字键盘区域会被替换为一个圆角灰色背景的 <code>List</code> 历史卡片，卡片倒序滚动显示过往的表达式与结算结果，确保最新的记录总是在最上层。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// pages/Index.ets (键盘与历史卡片 75%:25% 左右分栏渲染)</span><br><span class="hljs-title class_">Row</span>() &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">isShowHistory</span>) &#123;<br>    <span class="hljs-comment">// 展开历史记录卡片</span><br>    <span class="hljs-title class_">HistoryCardView</span>(&#123;<br>      <span class="hljs-attr">historyList</span>: $historyList,<br>      <span class="hljs-attr">themeColor</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">primaryColor</span>,<br>      <span class="hljs-attr">onItemClick</span>: (<span class="hljs-attr">val</span>: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> &#123;<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">expression</span> = val; <span class="hljs-comment">// 点击回填表达式</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">isShowHistory</span> = <span class="hljs-literal">false</span>;<br>      &#125;<br>    &#125;)<br>    .<span class="hljs-title function_">layoutWeight</span>(<span class="hljs-number">3</span>).<span class="hljs-title function_">height</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)<br><br>    <span class="hljs-comment">// 右侧运算列始终固定</span><br>    <span class="hljs-title class_">Column</span>(&#123; <span class="hljs-attr">space</span>: <span class="hljs-number">12</span> &#125;) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">SideBtn</span>(<span class="hljs-string">&#x27;←&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">SideBtn</span>(<span class="hljs-string">&#x27;÷&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">SideBtn</span>(<span class="hljs-string">&#x27;×&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">SideBtn</span>(<span class="hljs-string">&#x27;-&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">SideBtn</span>(<span class="hljs-string">&#x27;+&#x27;</span>); <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">SideEqualBtn</span>();<br>    &#125;<br>    .<span class="hljs-title function_">layoutWeight</span>(<span class="hljs-number">1</span>).<span class="hljs-title function_">height</span>(<span class="hljs-string">&#x27;100%&#x27;</span>)<br>  &#125; <span class="hljs-keyword">else</span> &#123; ... &#125; <span class="hljs-comment">// 普通键盘渲染</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​	每条历史记录挂载了回填事件回调，用户点击历史运算结果即可将其作为输入直接填入输入框中，用户可以切回键盘继续参与计算；卡片底部添加了清除按钮，可一键清空历史缓存。</p>
+<p>​	同时，针对“程序计算器”不一样的计算特点和布局特点，我设计了两套历史记录系统的页面布局，效果呈现如下：</p>
+<p align="center">
+  <img src="/images/lab4/4.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab4/5.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<hr>
+<h3 id="2-汇率转换页"><a href="#2-汇率转换页" class="headerlink" title="2. 汇率转换页"></a>2. 汇率转换页</h3><p>​	本工具支持 <strong>美元（USD）、人民币（CNY）、欧元（EUR）、日元（JPY）、英镑（GBP）、港元（HKD）等 11 种国际主流货币</strong> 的汇率双向实时转换，并突破性地引入了网络数据更新机制。<br>​	<br>​	界面视觉上由上下两个双币种卡片和底部键盘组成。两张卡片分别配备了状态指示灯，点击哪张卡片，该卡片即刻亮起主题色高光，并被激活为输入卡片，另一张则自动转为目标换算卡片。点击币种右侧的导航箭头，会触发半模态面板 <code>bindSheet</code> ，弹出可选币种列表以供切换。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// views/rate/RateConverterMainView.ets (双币种卡片与键盘布局)</span><br><span class="hljs-title class_">Column</span>(&#123; <span class="hljs-attr">space</span>: <span class="hljs-number">14</span> &#125;) &#123;<br>  <span class="hljs-comment">// 卡片 A 容器</span><br>  <span class="hljs-title class_">Column</span>() &#123;<br>    <span class="hljs-title class_">Row</span>() &#123;<br>      <span class="hljs-title class_">Row</span>().<span class="hljs-title function_">width</span>(<span class="hljs-number">9</span>).<span class="hljs-title function_">height</span>(<span class="hljs-number">9</span>).<span class="hljs-title function_">borderRadius</span>(<span class="hljs-number">4.5</span>)<br>        .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">activeCardIndex</span> === <span class="hljs-number">0</span> ? <span class="hljs-variable language_">this</span>.<span class="hljs-property">primaryColor</span> : <span class="hljs-string">&#x27;#B0B5C0&#x27;</span>)<br>      <span class="hljs-title class_">Text</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.currencyA.name&#125;</span>  <span class="hljs-subst">$&#123;<span class="hljs-variable language_">this</span>.currencyA.code&#125;</span> ＞`</span>).<span class="hljs-title function_">onClick</span>((): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> &#123; <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">openSheetA</span>(); &#125;)<br>    &#125;<br>    <span class="hljs-title class_">Text</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">inputValA</span>).<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">38</span>)<br>  &#125;<br>  .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-title class_">AppColorSystem</span>.<span class="hljs-title function_">getCardBg</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">isDarkMode</span>))<br>  .<span class="hljs-title function_">border</span>(&#123; <span class="hljs-attr">width</span>: <span class="hljs-number">1.5</span>, <span class="hljs-attr">color</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">activeCardIndex</span> === <span class="hljs-number">0</span> ? <span class="hljs-variable language_">this</span>.<span class="hljs-property">primaryColor</span> : <span class="hljs-title class_">Color</span>.<span class="hljs-property">Transparent</span> &#125;)<br>  .<span class="hljs-title function_">onClick</span>((): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> &#123; <span class="hljs-variable language_">this</span>.<span class="hljs-property">activeCardIndex</span> = <span class="hljs-number">0</span>; &#125;)<br>  ... <span class="hljs-comment">// 省略卡片 B 类似声明</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​	数据时效性上，我通过鸿蒙官方的 <code>@ohos.net.http</code> 模块编写了网络服务，异步调用国际公开金融汇率接口拉取最新行情并更新内存基准数据。页面在 <code>aboutToAppear</code> 生命周期中会自动拉取更新，并在卡片下方动态更新带有“年月日 时分秒”的真实同步时间戳，且支持通过点击“刷新”按钮进行手动即时轮询。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// common/RateService.ets (鸿蒙 HTTP 网络汇率异步同步)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> <span class="hljs-title function_">fetchLatestRates</span>(): <span class="hljs-title class_">Promise</span>&lt;<span class="hljs-built_in">string</span>&gt; &#123;<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">httpRequest</span>: http.<span class="hljs-property">HttpRequest</span> = http.<span class="hljs-title function_">createHttp</span>();<br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> httpRequest.<span class="hljs-title function_">request</span>(<span class="hljs-string">&#x27;https://open.er-api.com/v6/latest/USD&#x27;</span>, &#123;<br>      <span class="hljs-attr">method</span>: http.<span class="hljs-property">RequestMethod</span>.<span class="hljs-property">GET</span>, <span class="hljs-attr">connectTimeout</span>: <span class="hljs-number">6000</span><br>    &#125;);<br>    <span class="hljs-keyword">if</span> (response.<span class="hljs-property">responseCode</span> === <span class="hljs-number">200</span>) &#123;<br>      <span class="hljs-keyword">const</span> json = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(response.<span class="hljs-property">result</span>.<span class="hljs-title function_">toString</span>()) <span class="hljs-keyword">as</span> <span class="hljs-title class_">ExchangeRateApiResult</span>;<br>      <span class="hljs-comment">// 遍历刷新各国际货币针对基准美元的乘数矩阵</span><br>      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-variable constant_">GLOBAL_CURRENCIES</span>.<span class="hljs-property">length</span>; i++) &#123;<br>        <span class="hljs-keyword">const</span> code = <span class="hljs-variable constant_">GLOBAL_CURRENCIES</span>[i].<span class="hljs-property">code</span>;<br>        <span class="hljs-keyword">if</span> (json.<span class="hljs-property">rates</span>[code] !== <span class="hljs-literal">undefined</span>) <span class="hljs-variable constant_">GLOBAL_CURRENCIES</span>[i].<span class="hljs-property">rateToUSD</span> = json.<span class="hljs-property">rates</span>[code];<br>      &#125;<br>      <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;汇率已同步更新于: &#x27;</span> + <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">toLocaleTimeString</span>();<br>    &#125;<br>  &#125; <span class="hljs-keyword">finally</span> &#123; httpRequest.<span class="hljs-title function_">destroy</span>(); &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;使用本地基准汇率&#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/6.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab4/7.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<hr>
+<h3 id="3-单位换算页"><a href="#3-单位换算页" class="headerlink" title="3. 单位换算页"></a>3. 单位换算页</h3><p>​	本工具包含“长度”、“重量”和“面积”三类单位的换算，分别支持 7 种、6 种和 5 种常用度量衡在同类单位内的相互换算。<br>​	<br>​	在界面设计上，页面顶部使用分段胶囊按钮进行各分类的切换，主体区采用“源单位输入卡片”与“目标单位结果卡片”上下排布。输入数据支持浮点数，以单精度浮点数的形式存储。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// pages/Index.ets (单位换算双卡片与小数输入框)</span><br><span class="hljs-title class_">TextInput</span>(&#123; <span class="hljs-attr">text</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">unitInputVal</span> &#125;)<br>  .<span class="hljs-title function_">type</span>(<span class="hljs-title class_">InputType</span>.<span class="hljs-property">NUMBER_DECIMAL</span>) <span class="hljs-comment">// 开放负数与小数点输入支持</span><br>  .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">28</span>)<br>  .<span class="hljs-title function_">fontWeight</span>(<span class="hljs-title class_">FontWeight</span>.<span class="hljs-property">Bold</span>)<br>  .<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">isDarkMode</span> ? <span class="hljs-string">&#x27;#24242A&#x27;</span> : <span class="hljs-string">&#x27;#F5F7FA&#x27;</span>)<br>  .<span class="hljs-title function_">onChange</span>((<span class="hljs-attr">v</span>: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">unitInputVal</span> = v;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">recalcUnit</span>(); <span class="hljs-comment">// 联动实时重算</span><br>  &#125;)<br></code></pre></td></tr></table></figure>
+
+<p>​	逻辑实现方面，我建立了一套以国际标准量（米、千克、平方米）为基准的系数字典。换算时，先将输入的数值乘以源单位的转化系数归一化为基准值，再除以目标单位的系数得出最终结果。避免了为每对单位单独写转化公式的冗余设计，计算结果对于过长的小数位执行格式化过滤与科学计数法保底保护。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// pages/Index.ets (基于基准归一化矩阵的换算算法)</span><br><span class="hljs-keyword">private</span> <span class="hljs-title function_">recalcUnit</span>(): <span class="hljs-built_in">void</span> &#123;<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">list</span>: <span class="hljs-title class_">UnitItem</span>[] = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getUnitList</span>();<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">val</span>: <span class="hljs-built_in">number</span> = <span class="hljs-built_in">parseFloat</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">unitInputVal</span>) || <span class="hljs-number">0</span>;<br>  <span class="hljs-comment">// 先将源单位折算为标准国际基准量，再反除求得目标量</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">base</span>: <span class="hljs-built_in">number</span> = val * list[<span class="hljs-variable language_">this</span>.<span class="hljs-property">sourceUnitIdx</span>].<span class="hljs-property">factorToBase</span>;<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">res</span>: <span class="hljs-built_in">number</span> = base / list[<span class="hljs-variable language_">this</span>.<span class="hljs-property">targetUnitIdx</span>].<span class="hljs-property">factorToBase</span>;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">unitResultVal</span> = res &gt;= <span class="hljs-number">1000000</span> ? res.<span class="hljs-title function_">toExponential</span>(<span class="hljs-number">4</span>) : res.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">4</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/\.?0+$/</span>, <span class="hljs-string">&#x27;&#x27;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/8.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab4/9.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab4/10.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<hr>
+<h3 id="4-BMI计算页"><a href="#4-BMI计算页" class="headerlink" title="4. BMI计算页"></a>4. BMI计算页</h3><p>​	BMI 计算页是一项切中生活健康的创意功能，用户可以快捷计算自己的BMI数据，以评估自身的身高体重是否符合健康标准。<br>​	<br>​	页面设计上，该页包含身高输入行、体重输入行和下方的评估卡片。输入的身高体重数据通过 <code>InputType.NUMBER_DECIMAL</code> 属性存储，支持单精度小数输入。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// pages/Index.ets (BMI 指数评测输入行)</span><br><span class="hljs-title class_">Row</span>() &#123;<br>  <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;身高 (cm):&#x27;</span>).<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">16</span>).<span class="hljs-title function_">width</span>(<span class="hljs-number">90</span>)<br>  <span class="hljs-title class_">TextInput</span>(&#123; <span class="hljs-attr">text</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiHeight</span> &#125;)<br>    .<span class="hljs-title function_">type</span>(<span class="hljs-title class_">InputType</span>.<span class="hljs-property">NUMBER_DECIMAL</span>)<br>    .<span class="hljs-title function_">onChange</span>((<span class="hljs-attr">v</span>: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiHeight</span> = v;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">recalcBMI</span>();<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>​	评估的逻辑基于中国国家卫生健康委员会的标准，计算公式为 $\text{BMI} &#x3D; \text{体重(kg)} &#x2F; (\text{身高(m)})^2$。系统实时计算出 BMI 得分，并在结果卡片中渲染带颜色的健康评级：如蓝色的“偏瘦”、绿色的“标准健康”、橙色的“超重”和红色的“肥胖”，直观展示健康状态。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// pages/Index.ets (国标分级判定逻辑)</span><br><span class="hljs-keyword">const</span> <span class="hljs-attr">bmi</span>: <span class="hljs-built_in">number</span> = w / (h * h);<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiScore</span> = bmi.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">1</span>);<br><span class="hljs-keyword">if</span> (bmi &lt; <span class="hljs-number">18.5</span>) &#123; <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiLevel</span> = <span class="hljs-string">&#x27;偏瘦&#x27;</span>; <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiColor</span> = <span class="hljs-string">&#x27;#3B82F6&#x27;</span>; &#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (bmi &lt; <span class="hljs-number">24.0</span>) &#123; <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiLevel</span> = <span class="hljs-string">&#x27;标准健康&#x27;</span>; <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiColor</span> = <span class="hljs-string">&#x27;#10B981&#x27;</span>; &#125;<br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (bmi &lt; <span class="hljs-number">28.0</span>) &#123; <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiLevel</span> = <span class="hljs-string">&#x27;超重&#x27;</span>; <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiColor</span> = <span class="hljs-string">&#x27;#F59E0B&#x27;</span>; &#125;<br><span class="hljs-keyword">else</span> &#123; <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiLevel</span> = <span class="hljs-string">&#x27;肥胖&#x27;</span>; <span class="hljs-variable language_">this</span>.<span class="hljs-property">bmiColor</span> = <span class="hljs-string">&#x27;#EF4444&#x27;</span>; &#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/11.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<hr>
+<h3 id="5-金额大写转换页"><a href="#5-金额大写转换页" class="headerlink" title="5. 金额大写转换页"></a>5. 金额大写转换页</h3><p>​	金额大写转换是针对财务报销场景开发的特色工具，能够将常见的小写阿拉伯数字金额实时转译为规范的汉字大写。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// pages/Index.ets (大写金额展示卡片)</span><br><span class="hljs-title class_">Column</span>(&#123; <span class="hljs-attr">space</span>: <span class="hljs-number">10</span> &#125;) &#123;<br>  <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;中国银行规范大写:&#x27;</span>).<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">14</span>).<span class="hljs-title function_">fontColor</span>(<span class="hljs-title class_">AppColorSystem</span>.<span class="hljs-title function_">getTextSecondary</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">isDarkMode</span>))<br>  <span class="hljs-title class_">Text</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">rmbResultVal</span>)<br>    .<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">20</span>)<br>    .<span class="hljs-title function_">fontWeight</span>(<span class="hljs-title class_">FontWeight</span>.<span class="hljs-property">Medium</span>)<br>    .<span class="hljs-title function_">fontColor</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">primaryColor</span>) <span class="hljs-comment">// 突出显示大写结果</span><br>&#125;<br>.<span class="hljs-title function_">padding</span>(<span class="hljs-number">18</span>)<br>.<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-title class_">AppColorSystem</span>.<span class="hljs-title function_">getCardBg</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">isDarkMode</span>))<br></code></pre></td></tr></table></figure>
+
+<p>​	该功能的转换逻辑在 <code>toRMBWords</code> 函数中实现。该函数首先通过取余算法把小数部分分离并映射到“角”和“分”，随后将整数部分按每四位（“万”、“亿”）进行分段截断，递归匹配大写字符表 <code>[&#39;零&#39;, &#39;壹&#39;, &#39;贰&#39;, &#39;叁&#39;, &#39;肆&#39;, &#39;伍&#39;, &#39;陆&#39;, &#39;柒&#39;, &#39;捌&#39;, &#39;玖&#39;]</code> 与数位阶级 <code>[&#39;&#39;, &#39;拾&#39;, &#39;佰&#39;, &#39;仟&#39;]</code>，并在最后自动处理内部多零的连续合并。基于以上机制，可以生成严密而规范的会计文本。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// pages/Index.ets (财务中文汉字转换状态机)</span><br><span class="hljs-keyword">let</span> <span class="hljs-attr">integerPart</span>: <span class="hljs-built_in">number</span> = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(money);<br><span class="hljs-keyword">let</span> <span class="hljs-attr">unitPos</span>: <span class="hljs-built_in">number</span> = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">while</span> (integerPart &gt; <span class="hljs-number">0</span>) &#123;<br>  <span class="hljs-keyword">let</span> <span class="hljs-attr">section</span>: <span class="hljs-built_in">string</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">secVal</span>: <span class="hljs-built_in">number</span> = integerPart % <span class="hljs-number">10000</span>;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span> &amp;&amp; i &lt; secVal.<span class="hljs-title function_">toString</span>().<span class="hljs-property">length</span>; i++) &#123;<br>    <span class="hljs-keyword">const</span> <span class="hljs-attr">d</span>: <span class="hljs-built_in">number</span> = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(secVal / <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">pow</span>(<span class="hljs-number">10</span>, i)) % <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">if</span> (d &gt; <span class="hljs-number">0</span>) section = digit[d] + unit[<span class="hljs-number">1</span>][i] + section;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (section &amp;&amp; !section.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;零&#x27;</span>)) section = <span class="hljs-string">&#x27;零&#x27;</span> + section;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (secVal &gt; <span class="hljs-number">0</span>) strInt = section + unit[<span class="hljs-number">0</span>][unitPos] + strInt;<br>  unitPos++;<br>  integerPart = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(integerPart / <span class="hljs-number">10000</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/12.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<hr>
+<h3 id="6-系统设置页"><a href="#6-系统设置页" class="headerlink" title="6. 系统设置页"></a>6. 系统设置页</h3><p>​	系统设置页可以进行黑夜模式切换、主题强调色切换、震动开启或关闭以及本地缓存和数据的清除，包含产品的基本信息。<br>​	<br>​	系统设置页的基本布局，采用的是苹果 iOS 风格的圆角分组列表设计，通过四个卡片分组划分了“外观与主题”、“交互与触觉”、“数据与历史”以及“关于”四个业务区。在此处我引入了独立的 <strong>黑夜模式（OLED 纯黑）开关</strong>，并在外层通过 ArkTS 的 <code>.expandSafeArea</code> 属性让纯黑背景穿透系统状态栏与底部导航条，呈现完整而独立的黑夜背景（避免实际开发中出现过的屏幕顶部与底部的“漏白”现象）。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// views/settings/SettingsView.ets (沉浸式全屏穿透与开关设置)</span><br><span class="hljs-title class_">Column</span>() &#123;<br>  <span class="hljs-comment">// 分组卡片列表</span><br>  <span class="hljs-title class_">Scroll</span>() &#123;<br>    <span class="hljs-title class_">Column</span>(&#123; <span class="hljs-attr">space</span>: <span class="hljs-number">20</span> &#125;) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">SectionCard</span>(<span class="hljs-string">&#x27;外观与主题&#x27;</span>, [ ... ])<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title class_">SectionCard</span>(<span class="hljs-string">&#x27;交互与触觉&#x27;</span>, [ ... ])<br>    &#125;<br>  &#125;<br>&#125;<br>.<span class="hljs-title function_">backgroundColor</span>(<span class="hljs-title class_">AppColorSystem</span>.<span class="hljs-title function_">getPageBg</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">isDarkMode</span>))<br><span class="hljs-comment">// 状态栏及导航栏系统级全沉浸扩展，彻底消除边缘漏白</span><br>.<span class="hljs-title function_">expandSafeArea</span>([<span class="hljs-title class_">SafeAreaType</span>.<span class="hljs-property">SYSTEM</span>], [<span class="hljs-title class_">SafeAreaEdge</span>.<span class="hljs-property">TOP</span>, <span class="hljs-title class_">SafeAreaEdge</span>.<span class="hljs-property">BOTTOM</span>])<br></code></pre></td></tr></table></figure>
+
+<p>​	不仅如此，设置页还支持针对“中国海大蓝”、“极简蓝”、“翡翠绿”和“活力橙”多套主题模板的切换。在代码实现上，主题变更通过双向绑定变量实时下发；效果上，触发切换后，主页面的等号键、导航下划线、激活卡片均会联动变色。</p>
+<p>​	页面底部还提供了全量历史记录数据的安全清除功能。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// views/settings/SettingsView.ets (强调色多色板单选机制)</span><br><span class="hljs-title class_">Stack</span>(&#123; <span class="hljs-attr">alignContent</span>: <span class="hljs-title class_">Alignment</span>.<span class="hljs-property">Center</span> &#125;) &#123;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">primaryColor</span> === hex) &#123;<br>    <span class="hljs-title class_">Text</span>(<span class="hljs-string">&#x27;✓&#x27;</span>).<span class="hljs-title function_">fontSize</span>(<span class="hljs-number">14</span>).<span class="hljs-title function_">fontColor</span>(<span class="hljs-string">&#x27;#FFFFFF&#x27;</span>).<span class="hljs-title function_">fontWeight</span>(<span class="hljs-title class_">FontWeight</span>.<span class="hljs-property">Bold</span>)<br>  &#125;<br>&#125;<br>.<span class="hljs-title function_">width</span>(<span class="hljs-number">28</span>).<span class="hljs-title function_">height</span>(<span class="hljs-number">28</span>).<span class="hljs-title function_">borderRadius</span>(<span class="hljs-number">14</span>).<span class="hljs-title function_">backgroundColor</span>(hex)<br>.<span class="hljs-title function_">onClick</span>((): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">primaryColor</span> = hex; <span class="hljs-comment">// 响应式触发全局强调色刷新</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>效果展示图：</p>
+<p align="center">
+  <img src="/images/lab4/13.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab4/14.png" srcset="/img/loading.gif" lazyload width="30%" />
+</p>
+
+<hr>
+<h2 id="四、-问题总结与体会"><a href="#四、-问题总结与体会" class="headerlink" title="四、 问题总结与体会"></a>四、 问题总结与体会</h2><h3 id="1-遇到的问题与代码调优"><a href="#1-遇到的问题与代码调优" class="headerlink" title="1. 遇到的问题与代码调优"></a>1. 遇到的问题与代码调优</h3><p>​	在本次多功能计算器的开发的过程中，我遇到了一些涉及 <strong>ArkTS 数据绑定机制</strong> 以及 <strong>并发弹窗生命周期</strong> 的问题，记录如下：</p>
+<ul>
+<li><p><strong>问题一：程序员计算器和汇率计算器下点击按键后界面数据无刷新</strong></p>
+<ul>
+<li><em>现象</em>：在完成程序员模式及汇率换算页面的搭建后，在模拟器中点击键盘按键，虽然确认按键点击逻辑已经正常触发并执行了数值更新，但界面四进制文本及汇率卡片中的数值依然维持在初始的 <code>0</code> 或 <code>1</code>，没有任何动态反馈。</li>
+<li><em>分析与解决</em>：排查发现，该问题是由于 ArkTS 编译器的底层参数求值机制引起。在原代码中，我将显示字符串通过普通形参传入了自定义的 <code>@Builder</code> 函数（如 <code>this.RadixRow(&#39;HEX&#39;, this.hexText, ...)</code>）。在 ArkTS 静态类型检查范式下，按值传递给 <code>@Builder</code> 的参数会被识别为静态快照，其内部无法监听状态变量的更改，导致局部 UI 树被阻断刷新。针对此问题，我重构了展示组件，剔除了中间 <code>@Builder</code> 的形参值传递，改为在组件内部直接通过 <code>this.hexText</code> 读取 <code>@State</code> 状态变量，恢复了响应式依赖链路，界面数值恢复了即时跳动效果。</li>
+</ul>
+</li>
+<li><p><strong>问题二：设置面板触发延迟与弹窗阻塞 Bug</strong></p>
+<ul>
+<li><em>现象</em>：点击主页右上角的“设置”齿轮按钮后，系统没有任何反应；只有当用户随后点击中间的“MODE”模式切换按钮时，此前被点击的“设置”弹窗才延迟弹出。</li>
+<li>初步尝试：起初我推测是事件冒泡或按钮触控热区过小导致的漏触，尝试增大了齿轮按钮的有效点击尺寸并为事件绑定添加独立的防抖机制，但延迟弹出的现象依旧存在。</li>
+<li>结果与分析：进一步审阅代码后发现，该 Bug 是由于在同一个页面的根节点上链式绑定了两个 <code>.bindSheet</code> 半模态转场组件。在鸿蒙底层的窗口与转场状态机中，同一容器挂载多个同类型模态弹窗会导致内部状态产生时序竞争与覆盖冲突，导致前一个弹窗被后续的事件所阻塞拦截。</li>
+<li><em>最终方案</em>：我彻底废弃了使用模态弹窗承载系统设置的做法，将其重构为一个独立的二级页面组件 <code>SettingsView</code>，通过顶层 <code>Stack</code> 条件渲染与动画机制接管路由流转。这一举措不仅彻底排除了双 <code>bindSheet</code> 的竞争隐患，还让设置模块拥有了全屏的展示空间，能够从容布局深色模式与强调色的复杂分组，体验大幅提升。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-实验总结与收获"><a href="#2-实验总结与收获" class="headerlink" title="2. 实验总结与收获"></a>2. 实验总结与收获</h3><p>​	这次实验让我实现了从微信小程序开发到鸿蒙系统应用开发的跨越，两者虽然使用不同的IDE和语言描述项目，但制作的过程总是相通的。使用过程中，我学习了鸿蒙 ArkTS 的声明式 UI 开发、组件状态管理（<code>@State</code>&#x2F;<code>@Prop</code>&#x2F;<code>@Link</code>）、网络数据通信以及系统级沉浸式布局等核心知识，更让我对移动端复杂多模态工具的架构分层和 UI&#x2F;UX 体验调优有了更深体会。<br>​	<br>​	在开发流程方面，我通过模块解耦循序渐进地推进项目进度。从最先构筑底层的逆波兰数学计算引擎开始，到逐步落地标准、科学与程序员三大核心视窗，再到后期把各工具模块独立为并列 Tab 并统一进行 OLED 纯黑与海大蓝的沉浸式换肤。我逐渐熟练这种自底向上、步步为营的工程化开发方式，不仅条理清晰，也极大降低了组件联动与数据追踪时的排错成本。<br>​	<br>​	另外，我也深刻感受到了项目稳定正常运行的重要性。无论是深入排查 <code>@Builder</code> 传值机制导致的局部刷新阻断，还是通过输入类型限制和除零容错保障复杂代数计算的稳定性，亦或是调用真机网络 API 解决汇率时效性问题，都让我受益很多。只有在细节上进行严密的构思与反复考究，才能使一款工具类应用从课程作业式的“玩具级”应用，逐步蜕变为具有上线潜力的工业级产品。<br>​	<br>​	总的来说，这次实践不仅积累了鸿蒙系统的实战开发经验，也培养了我在软件设计中兼顾硬核算法、严密架构与人机交互质感的工程思维，受益匪浅。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" class="category-chain-item">课程实验</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="print-no-link">#微信小程序</a>
+      
+        <a href="/tags/%E7%A7%BB%E5%8A%A8%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="print-no-link">#移动软件开发</a>
+      
+        <a href="/tags/%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6/" class="print-no-link">#中国海洋大学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>中国海洋大学《移动软件开发》实验4：推箱子游戏</div>
+      <div>http://example.com/2026/09/09/lab5-report/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>吴啸天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年9月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/09/09/lab6-report/" title="中国海洋大学《移动软件开发》实验4：推箱子游戏">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">中国海洋大学《移动软件开发》实验4：推箱子游戏</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/09/02/lab4-report/" title="中国海洋大学《移动软件开发》实验4：推箱子游戏">
+                        <span class="hidden-mobile">中国海洋大学《移动软件开发》实验4：推箱子游戏</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
