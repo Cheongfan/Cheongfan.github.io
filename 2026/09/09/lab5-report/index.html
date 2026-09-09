@@ -21,24 +21,24 @@
   
     <meta name="description" content="基于 HarmonyOS NEXT， 在 DevEco Studio 上利用 ArkTS 语言开发了多功能计算器，集成了普通、科学、程序员大三计算器，包含汇率、单位、BMI等实用计算功能，实现了历史记录、主题切换等设计。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中国海洋大学《移动软件开发》实验4：推箱子游戏">
+<meta property="og:title" content="中国海洋大学《移动软件开发》实验5：鸿蒙开发入门及计算器开发">
 <meta property="og:url" content="http://example.com/2026/09/09/lab5-report/index.html">
 <meta property="og:site_name" content="Cheongfan">
 <meta property="og:description" content="基于 HarmonyOS NEXT， 在 DevEco Studio 上利用 ArkTS 语言开发了多功能计算器，集成了普通、科学、程序员大三计算器，包含汇率、单位、BMI等实用计算功能，实现了历史记录、主题切换等设计。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/10.jpg">
+<meta property="og:image" content="http://example.com/images/11.jpg">
 <meta property="article:published_time" content="2026-09-09T13:30:00.000Z">
-<meta property="article:modified_time" content="2026-09-09T13:27:36.270Z">
+<meta property="article:modified_time" content="2026-09-09T14:25:12.342Z">
 <meta property="article:author" content="吴啸天">
 <meta property="article:tag" content="中国海洋大学">
 <meta property="article:tag" content="微信小程序">
 <meta property="article:tag" content="移动软件开发">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/10.jpg">
+<meta name="twitter:image" content="http://example.com/images/11.jpg">
   
   
   
-  <title>中国海洋大学《移动软件开发》实验4：推箱子游戏 - Cheongfan</title>
+  <title>中国海洋大学《移动软件开发》实验5：鸿蒙开发入门及计算器开发 - Cheongfan</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -307,7 +307,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="中国海洋大学《移动软件开发》实验4：推箱子游戏"></span>
+            <span id="subtitle" data-typed-text="中国海洋大学《移动软件开发》实验5：鸿蒙开发入门及计算器开发"></span>
           
         </div>
 
@@ -380,7 +380,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">中国海洋大学《移动软件开发》实验4：推箱子游戏</h1>
+            <h1 id="seo-header">中国海洋大学《移动软件开发》实验5：鸿蒙开发入门及计算器开发</h1>
             
             
               <div class="markdown-body">
@@ -407,7 +407,7 @@
 
 <p>效果展示图：</p>
 <p align="center">
-  <img src="/images/lab4/1.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/1.png" srcset="/img/loading.gif" lazyload width="30%" />
 </p>
 
 <h4 id="2-科学计算器"><a href="#2-科学计算器" class="headerlink" title="(2) 科学计算器"></a>(2) 科学计算器</h4><p>​	为了容纳更为复杂的三角函数与指数开方运算，科学计算器重构为了 6 行 8 列的全功能专业矩阵，并在左上角配置了高亮状态的 <code>2nd</code>（第二功能）功能换挡键。<br>​	<br>​	界面的前五列包含三角函数、方幂开方等科学算子，后三列与普通计算键盘无缝平铺。当点击 <code>2nd</code> 键时，界面局部组件直连响应式状态，第四、五行的 <code>sin</code>、<code>cos</code>、<code>tan</code>、<code>ln</code>、<code>e^x</code> 会瞬间动态变身为高阶的反三角函数 <code>asin</code>、<code>acos</code>、<code>atan</code>、对数 <code>log2</code> 以及底数幂 <code>2^x</code>。</p>
@@ -418,7 +418,7 @@
 
 <p>效果展示图：</p>
 <p align="center">
-  <img src="/images/lab4/2.png" srcset="/img/loading.gif" lazyload width="40%" />
+  <img src="/images/lab5/2.png" srcset="/img/loading.gif" lazyload width="40%" />
 </p>
 
 
@@ -430,7 +430,7 @@
 
 <p>效果展示图：</p>
 <p align="center">
-  <img src="/images/lab4/3.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/3.png" srcset="/img/loading.gif" lazyload width="30%" />
 </p>
 
 <h4 id="4-历史记录功能"><a href="#4-历史记录功能" class="headerlink" title="(4) 历史记录功能"></a>(4) 历史记录功能</h4><p>​	本应用实现了水平分割的卡片式历史记录面板。<br>​	<br>​	在主页面上，当用户点击顶栏的时钟图标 <code>🕒</code> 后，图标通过平滑状态切换变为撤销回退箭头 <code>↩</code>；同时，页面左侧 75% 的数字键盘区域会被替换为一个圆角灰色背景的 <code>List</code> 历史卡片，卡片倒序滚动显示过往的表达式与结算结果，确保最新的记录总是在最上层。</p>
@@ -439,8 +439,8 @@
 <p>​	每条历史记录挂载了回填事件回调，用户点击历史运算结果即可将其作为输入直接填入输入框中，用户可以切回键盘继续参与计算；卡片底部添加了清除按钮，可一键清空历史缓存。</p>
 <p>​	同时，针对“程序计算器”不一样的计算特点和布局特点，我设计了两套历史记录系统的页面布局，效果呈现如下：</p>
 <p align="center">
-  <img src="/images/lab4/4.png" srcset="/img/loading.gif" lazyload width="30%" />
-  <img src="/images/lab4/5.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/4.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/5.png" srcset="/img/loading.gif" lazyload width="30%" />
 </p>
 
 <hr>
@@ -452,8 +452,8 @@
 
 <p>效果展示图：</p>
 <p align="center">
-  <img src="/images/lab4/6.png" srcset="/img/loading.gif" lazyload width="30%" />
-  <img src="/images/lab4/7.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/6.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/7.png" srcset="/img/loading.gif" lazyload width="30%" />
 </p>
 
 <hr>
@@ -465,9 +465,9 @@
 
 <p>效果展示图：</p>
 <p align="center">
-  <img src="/images/lab4/8.png" srcset="/img/loading.gif" lazyload width="30%" />
-  <img src="/images/lab4/9.png" srcset="/img/loading.gif" lazyload width="30%" />
-  <img src="/images/lab4/10.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/8.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/9.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/10.png" srcset="/img/loading.gif" lazyload width="30%" />
 </p>
 
 <hr>
@@ -479,7 +479,7 @@
 
 <p>效果展示图：</p>
 <p align="center">
-  <img src="/images/lab4/11.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/11.png" srcset="/img/loading.gif" lazyload width="30%" />
 </p>
 
 <hr>
@@ -491,7 +491,7 @@
 
 <p>效果展示图：</p>
 <p align="center">
-  <img src="/images/lab4/12.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/12.png" srcset="/img/loading.gif" lazyload width="30%" />
 </p>
 
 <hr>
@@ -504,8 +504,8 @@
 
 <p>效果展示图：</p>
 <p align="center">
-  <img src="/images/lab4/13.png" srcset="/img/loading.gif" lazyload width="30%" />
-  <img src="/images/lab4/14.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/13.png" srcset="/img/loading.gif" lazyload width="30%" />
+  <img src="/images/lab5/14.png" srcset="/img/loading.gif" lazyload width="30%" />
 </p>
 
 <hr>
@@ -577,7 +577,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>中国海洋大学《移动软件开发》实验4：推箱子游戏</div>
+      <div>中国海洋大学《移动软件开发》实验5：鸿蒙开发入门及计算器开发</div>
       <div>http://example.com/2026/09/09/lab5-report/</div>
     </div>
     <div class="license-meta">
@@ -622,9 +622,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/09/09/lab6-report/" title="中国海洋大学《移动软件开发》实验4：推箱子游戏">
+                      <a href="/2026/09/09/lab6-report/" title="中国海洋大学《移动软件开发》实验6：微信小程序云开发">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">中国海洋大学《移动软件开发》实验4：推箱子游戏</span>
+                        <span class="hidden-mobile">中国海洋大学《移动软件开发》实验6：微信小程序云开发</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
