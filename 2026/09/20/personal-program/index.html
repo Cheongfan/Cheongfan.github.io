@@ -1,0 +1,921 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="吴啸天">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="开发了一款名为《Summer Survival——暑假生存模拟器》的基于多资源平衡的 Reigns 风格卡牌滑屏决策式生存模拟小游戏，内置六款独立街机小游戏。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中国海洋大学《移动软件开发》个人项目：Summer Survival——暑假生存模拟器">
+<meta property="og:url" content="http://example.com/2026/09/20/personal-program/index.html">
+<meta property="og:site_name" content="Cheongfan">
+<meta property="og:description" content="开发了一款名为《Summer Survival——暑假生存模拟器》的基于多资源平衡的 Reigns 风格卡牌滑屏决策式生存模拟小游戏，内置六款独立街机小游戏。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/13.png">
+<meta property="article:published_time" content="2026-09-20T10:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-20T10:10:28.057Z">
+<meta property="article:author" content="吴啸天">
+<meta property="article:tag" content="中国海洋大学">
+<meta property="article:tag" content="微信云开发">
+<meta property="article:tag" content="微信小程序">
+<meta property="article:tag" content="移动软件开发">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/13.png">
+  
+  
+  
+  <title>中国海洋大学《移动软件开发》个人项目：Summer Survival——暑假生存模拟器 - Cheongfan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Cheongfan</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="中国海洋大学《移动软件开发》个人项目：Summer Survival——暑假生存模拟器"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-09-20 18:00" pubdate>
+          2026年9月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">中国海洋大学《移动软件开发》个人项目：Summer Survival——暑假生存模拟器</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="移动软件开发个人项目结项总结"><a href="#移动软件开发个人项目结项总结" class="headerlink" title="移动软件开发个人项目结项总结"></a>移动软件开发个人项目结项总结</h1><table>
+<thead>
+<tr>
+<th>本实验属于哪门课程？</th>
+<th>中国海洋大学26夏《移动软件开发》</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>个人项目名称</td>
+<td>《Summer Survival——暑假生存模拟器》</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="博客与开源代码链接"><a href="#博客与开源代码链接" class="headerlink" title="博客与开源代码链接"></a>博客与开源代码链接</h3><ul>
+<li><strong>CSDN 博客链接</strong>：<a target="_blank" rel="noopener" href="https://cheongfan.github.io/">https://cheongfan.github.io/</a></li>
+<li><strong>GitHub 仓库链接</strong>：<a target="_blank" rel="noopener" href="https://github.com/Cheongfan/OUC-MobileDev">https://github.com/Cheongfan/OUC-MobileDev</a></li>
+</ul>
+<h2 id="一、-项目目标"><a href="#一、-项目目标" class="headerlink" title="一、 项目目标"></a>一、 项目目标</h2><ol>
+<li>综合应用微信小程序原生框架与云开发 &#x2F; 云托管知识，完成一个具备完整玩法闭环的模拟器小程序；</li>
+<li>掌握 <code>wx.cloud.callContainer</code> 云托管调用、端侧容错降级、本地存储管理、自定义组件与自定义 TabBar 等能力。</li>
+</ol>
+<hr>
+<h2 id="二、-项目运行环境"><a href="#二、-项目运行环境" class="headerlink" title="二、 项目运行环境"></a>二、 项目运行环境</h2><ul>
+<li><strong>操作系统</strong>：Windows 11</li>
+<li><strong>开发工具</strong>：微信开发者工具（Stable 2.02）</li>
+<li><strong>运行环境</strong>：微信基础库 3.17.2</li>
+<li><strong>后端支撑</strong>：腾讯云·微信小程序云托管（云环境、云服务发布）</li>
+</ul>
+<hr>
+<h2 id="三、-项目简介"><a href="#三、-项目简介" class="headerlink" title="三、 项目简介"></a>三、 项目简介</h2><p>​	<code>summer-survival/</code> 为本人对中国海洋大学 26 夏《移动软件开发》课程个人项目的前端源码实现；<code>ai-proxy-deploy/</code>为对应的微信云托管后端项目源码。</p>
+<p>​	本项目基于微信小程序原生框架与腾讯云开发体系开发，以**“暑假重开模拟器”<strong>为立意主题，实现了一款</strong>Reigns 风格的卡牌滑屏决策式生存模拟小游戏（基于多资源平衡的生存模拟）<strong>。玩家将扮演一名刚刚开启暑假生活的大学生，每天面对</strong>二选一事件卡**，通过决策<strong>维护四维属性</strong>（精力、钱包、精神、妈见打指数），尽可能地**“存活”更多天数**，触发不同结局。</p>
+<p>​	卡牌决策融入了DeepSeek <strong>自由辩解终端</strong>，支持基于AI的交互反馈与属性变动，提高游戏的沉浸感与自由度。游戏过程中会触发<strong>特殊事件</strong>，分为<strong>固定事件</strong>和突发事件，固定事件在游戏日达到固定天数后稳定触发，而每一个游戏日都可能触发突发事件，突发事件是随机的。所有特殊事件都是<strong>基于夏日学生背景实现的独立街机小游戏</strong>，这样的小游戏一共有<strong>六款</strong>，均收录在<strong>街机厅</strong>页面，用户可以进行单独游玩与挑战记录。</p>
+<p>​	此外，该游戏小程序还搭建了完善的配套外围系统，包括：<strong>成就&amp;结局图鉴</strong>、 <strong>自由辩解语录归纳</strong>、<strong>好友排行榜</strong>、<strong>个人主页</strong>、<strong>设置系统（触发音效、震动和夜间模式等）</strong>、<strong>AI仪表盘</strong>和<strong>关于作者（开源仓库链接、个人博客链接、开发者致辞和彩蛋等）</strong>。</p>
+<hr>
+<h2 id="四、项目真机运行效果"><a href="#四、项目真机运行效果" class="headerlink" title="四、项目真机运行效果"></a>四、项目真机运行效果</h2><p>主页、主游戏界面与结算页面：</p>
+<p align="center"> <img src="/images/personal_program/1.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="主页与生存入口" /> <img src="/images/personal_program/2.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="主线卡牌与四维属性" /> <img src="/images/personal_program/4.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="结算战报" /></p>
+
+<p>自由辩解与 AI 测试：</p>
+<p align="center"> <img src="/images/personal_program/00.gif" srcset="/img/loading.gif" lazyload width="31%" alt="自由辩解输入" /> <img src="/images/personal_program/01.gif" srcset="/img/loading.gif" lazyload width="31%" alt="AI 流式输出" />  </p>
+
+<p>街机厅 &amp; 成就图鉴 &amp; 天梯榜</p>
+<p align="center"> <img src="/images/personal_program/5.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="街机厅" /> <img src="/images/personal_program/6.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="成就图鉴 " /> <img src="/images/personal_program/8.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="天梯榜" /> </p>
+
+<p>个人主页 &amp; 系统设置 &amp; 关于作者</p>
+<p align="center"> <img src="/images/personal_program/9.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="个人主页" /> <img src="/images/personal_program/10.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="系统设置" /> <img src="/images/personal_program/11.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="关于作者" /> </p>
+
+<p>六款街机小游戏：</p>
+<p align="center"> <img src="/images/personal_program/12.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="行李箱收纳" /> <img src="/images/personal_program/13.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="时间规划" /> <img src="/images/personal_program/14.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="脑裂" /> </p>
+
+<p align="center"> <img src="/images/personal_program/15.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="科目二倒车入库" /> <img src="/images/personal_program/16.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="深夜潜行" /> <img src="/images/personal_program/17.jpg" srcset="/img/loading.gif" lazyload width="31%" alt="抢票" /> </p>
+
+<hr>
+<h2 id="五、实现功能与技术细节"><a href="#五、实现功能与技术细节" class="headerlink" title="五、实现功能与技术细节"></a>五、实现功能与技术细节</h2><h3 id="60-天暑假生存主线"><a href="#60-天暑假生存主线" class="headerlink" title="60 天暑假生存主线"></a>60 天暑假生存主线</h3><p>​	主线位于 <code>pages/game/game</code>，以 60 天为生存周期，围绕精力、钱包、精神、妈见打指数四项体征推进。玩家通过左右滑动卡牌或点击底部决策按钮做出选择，不同选择会实时改变四维数值，并触发对应提示。当任一属性归零或妈见打指数爆表时，进入对应结局；成功活到第 60 天则解锁“天选之子·暑假生存大师”结局。</p>
+<h3 id="DeepSeek-自由辩解与端云容错"><a href="#DeepSeek-自由辩解与端云容错" class="headerlink" title="DeepSeek 自由辩解与端云容错"></a>DeepSeek 自由辩解与端云容错</h3><p>​	<code>utils/aiEngine.js</code> 通过 <code>wx.cloud.callContainer</code> 调用微信云托管服务 <code>deepseek-proxy</code> 的 <code>/api/debate</code> 接口。服务端持有 DeepSeek API Key 与系统提示词，端侧不暴露密钥。</p>
+<p>​	AI 返回不依赖脆弱的 <code>JSON.parse</code>，而是通过字段级正则容错提取 <code>stamina</code>、<code>money</code>、<code>sanity</code>、<code>momRage</code>、<code>title</code>、<code>passed</code> 等字段，兼容大模型漏冒号、漏引号、键名拼写错误与末尾截断。若云托管超时或不可用，15 秒内自动降级至 L2 离线规则库，保证主线流程不中断。</p>
+<p>​	台词通过 35ms 逐字打印模拟流式输出，增强“在线裁判”的临场感。</p>
+<h3 id="六款原生街机小游戏"><a href="#六款原生街机小游戏" class="headerlink" title="六款原生街机小游戏"></a>六款原生街机小游戏</h3><ul>
+<li><strong>科目二：非生即死倒车</strong>：观察左右后视镜与鸟瞰考场，在教练血压爆表前一脚刹停。</li>
+<li><strong>特种兵：行李箱超载大作战</strong>：5×5 行李箱网格，旋转物品、规避充电宝与防晒喷雾相邻等危险布局。</li>
+<li><strong>凌晨三点：母上查房伪装</strong>：长按蒙头装睡，结合心率、门缝光影与拖鞋声雷达逃过查房。</li>
+<li><strong>12306：神之右手抢票</strong>：连点破盾、网络延迟波动、QTE 图形验证码三重压力。</li>
+<li><strong>作息折叠：24 小时时间消除</strong>：6×6 棋盘摆放活动方块，凑满整行或整列消除，维持清醒状态。</li>
+<li><strong>多线程：一心三用分心模拟</strong>：左手车道微调、右手秒回微信、眼睛盯老妈查房雷达。</li>
+</ul>
+<p>各小游戏最高分写入本地存储，并接入排行榜与街机厅展示。</p>
+<h3 id="结局图鉴、排行榜与个人档案"><a href="#结局图鉴、排行榜与个人档案" class="headerlink" title="结局图鉴、排行榜与个人档案"></a>结局图鉴、排行榜与个人档案</h3><p>​	<code>pages/collection</code> 展示全部结局图鉴，支持查看已解锁结局详情，并新增“自由辩解收纳”分页，记录玩家在主线中提交的 AI 辩解语录、NPC 评语与成立&#x2F;驳回状态。</p>
+<p>​	<code>pages/ranking</code> 提供生存天数、科二车神、夜爬潜行、12306 抢票、行李箱收纳、作息消除、多线程分心七类榜单。</p>
+<p>​	<code>pages/profile</code> 展示重开轮回、最长生存、结局解锁数与勋章墙，并支持模拟微信授权登录。</p>
+<h3 id="视听与交互体验"><a href="#视听与交互体验" class="headerlink" title="视听与交互体验"></a>视听与交互体验</h3><ul>
+<li><code>utils/audio.js</code> 基于 <code>wx.createWebAudioContext</code> 合成点击、滑动、成功、危险、游戏结束等芯片音效，无外部音频资源依赖。</li>
+<li><code>utils/haptics.js</code> 封装 <code>wx.vibrateShort</code> &#x2F; <code>wx.vibrateLong</code>，根据场景提供轻、中、重三级触觉反馈。</li>
+<li><code>custom-tab-bar</code> 实现自定义底部导航，<code>components/boot-screen</code> 提供 CRT 扫描线开屏动画。</li>
+<li>全局采用 Neo-Brutalism 硬边框、实体阴影与波普色块，支持深夜暗色模式。</li>
+</ul>
+<hr>
+<h2 id="六、本地运行指南"><a href="#六、本地运行指南" class="headerlink" title="六、本地运行指南"></a>六、本地运行指南</h2><ol>
+<li><p><strong>克隆本仓库到本地</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/Cheongfan/OUC-MobileDev.git<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>导入开发者工具</strong>：</p>
+<ul>
+<li>打开 <strong>微信开发者工具</strong>，点击 <strong>导入项目</strong>。</li>
+<li>选择克隆仓库的个人项目根目录：<code>OUC-MobileDev\Personal Program\summer-survival</code>。</li>
+<li>在<code>project.config.json</code>文件中填入个人小程序的 <code>AppID</code>（需开通<strong>微信云托管</strong>）。</li>
+</ul>
+</li>
+<li><p><strong>云环境配置</strong>：</p>
+<ul>
+<li>进入相同<code>AppID</code>的<strong>微信云托管</strong>账号的开发者主页，在合适的环境中<strong>新建服务</strong>。</li>
+<li>进入新创建的服务后，选择<strong>手动上传代码包</strong>，上传<strong>压缩包</strong><code>OUC-MobileDev\Personal Program\ai-proxy-deploy\ai-proxy-deploy.zip</code>，端口填入80后<strong>发布</strong>。</li>
+<li>在服务的<strong>服务设置</strong>界面，将容器的最小<strong>实例副本数</strong>设为1；填入<strong>环境变量</strong>“<strong>DEEPSEEK_API_KEY</strong>“: “<strong>sk-xxxxxxxxxx</strong>“(你的DeepSeek API KEY)，<strong>保存</strong>。</li>
+<li>回到刚刚导入了项目的微信开发者工具，在<code>app.js</code>和<code>utils\aiEngine.js</code>文件中将<code>your-env-id</code>替换为DeepSeek云托管服务所处环境的<strong>环境ID</strong>。</li>
+</ul>
+</li>
+<li><p><strong>模拟预览和真机预览：</strong></p>
+<ul>
+<li>点击 <strong>编译</strong> 即可在模拟器中体验项目功能；点击<strong>真机调试</strong>，用手机微信扫描生成的二维码可以进行真机预览。</li>
+</ul>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" class="category-chain-item">课程实验</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="print-no-link">#微信小程序</a>
+      
+        <a href="/tags/%E7%A7%BB%E5%8A%A8%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="print-no-link">#移动软件开发</a>
+      
+        <a href="/tags/%E4%B8%AD%E5%9B%BD%E6%B5%B7%E6%B4%8B%E5%A4%A7%E5%AD%A6/" class="print-no-link">#中国海洋大学</a>
+      
+        <a href="/tags/%E5%BE%AE%E4%BF%A1%E4%BA%91%E5%BC%80%E5%8F%91/" class="print-no-link">#微信云开发</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>中国海洋大学《移动软件开发》个人项目：Summer Survival——暑假生存模拟器</div>
+      <div>http://example.com/2026/09/20/personal-program/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>吴啸天</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年9月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/09/09/lab6-report/" title="中国海洋大学《移动软件开发》实验6：微信小程序云开发">
+                        <span class="hidden-mobile">中国海洋大学《移动软件开发》实验6：微信小程序云开发</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
